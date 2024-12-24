@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilo/style.css">
+    
+    <title>Primeiros Passos</title>
+</head>
+
+<body>
+    
+        <h1>Primeiros Passos</h1>
+        <h2>Mostrando na tela</h2>
+        <p>Podem ser escritos com os comandos:</p>
+        <ul>
+            <li><mark>window.alert</mark>('Mensagem') - mostra algo na tela (alerta do navegador);</li>
+            <li><mark>document.write</mark>('Mensagem') - mostra algo na tela (escreve no documento);</li>
+            <li><mark>window.confirm</mark>('Mensagem') - mostra algo e o usuário precisa confirmar;</li>
+        </ul>
+
+        <h2>Entrada do usuário</h2>
+        <ul>
+            <li><mark>window.prompt</mark>('Mensagem') - recebe uma entrada do usuário (string).</li>
+        </ul>
+    
+        <h2>Comentários no JS</h2>
+        <p>Com <mark>//</mark> ou <mark>/**/</mark></p>
+    
+        <h2>Variáveis JS</h2>
+        <p>Os nomes de variáveis no JS são declaradas por <mark>var nome_variavel</mark>, seguindo o seguinte:</p>
+        <ul>
+            <li>Podem começar com letra, $ ou _  ;</li>
+            <li>Não podem começar com número;</li>
+            <li>É possível usar acentos e símbolos;</li>
+            <li>Não podem conter espaços;</li>
+            <li>Não podem ser palavras reservadas;</li>
+            <li>Case Sensitive;</li>
+        </ul>
+    
+        <p>Tipos de variáveis:</p>
+        <ul>
+            <li>boolean: true ou false;</li>
+            <li>null;</li>
+            <li>number - engloba inteiro, real (usar . e não ,), Infinity e NaN;</li>
+            <li>string - declarar com "", '', ``;</li>
+            <li>function;</li>
+            <li>symbol, object (array) e undefined ?</li>
+        </ul>
+    
+        <p>Pra identificar o tipo da variável, usar a função <mark>typeof</mark>. <br>
+        <code>tipeof nome</code>
+        </p>
+    
+    
+       <h3>Manipulação de variáveis</h3>
+       <h4>Entrada do usuário</h4>
+       <p>Pode ser feita usando o comando JS <mark>window.prompt('mensagem')</mark>.</p>
+       <code>var nome = window.prompt('Qual seu nome? ')</code>
+       <p>E mostrado na tela com <mark>window.alert() / document.write()</mark></p>
+       <code>window.alert('Seja bem vindo(a)' + nome + ' !')</code>
+    
+    
+       <h3>Conversão de Tipos</h3>
+       <h4>String para Number</h4>
+       <p>Tendo uma variável n string:</p>
+       <ul>
+        <li>Number.parseInt(n) - converte n para inteiro;</li>
+        <li>Number.parseFloat(n) - converte para float;</li>
+        <li>Number(n) - a linguagem define se é Int ou Float.</li>
+       </ul>
+
+       <h4>Number para String</h4>
+       <p>Dado um número n</p>
+       <ul>
+        <li>Sring(n);</li>
+        <li>n.toString()</li>
+       </ul>
+
+       <h3>Formatação de Strings</h3>
+       <p>Dada uma variável string nome</p>
+       <ul>
+        <li>nome.length - tamanho da variável;</li>
+        <li>nome.toUpperCase() - torna todas letras maiúsculas;</li>
+        <li>nome.toLowerCase() - torna todas letras minúsculas;</li>
+        <li>nome.replace("x","y") - troca todos caractéres x por y.</li>
+       </ul>
+
+       <h3>Formatação de Números</h3>
+       <p>Dada uma variável number num</p>
+       <ul>
+        <li>num.<mark>toFixed(x)</mark> - deixa o número com <mark>x casas decimais</mark></li>
+        <li>num.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) - formata o número para real brasileiro (memorizo nuuunca);</li>
+        <li>num.replace("x","y") - troca todos caractéres x por y (torna o número uma string)</li>
+       </ul>
+
+
+
+       <h2>Template String</h2>
+       <p>Para facilitar a utilização de variáveis em frases, sem depender do uso de '' + '', usa-se <mark>${}</mark> envolvendo a variável. Importante lembrar que só funciona se a frase estiver envelopada <mark>com crase</mark>.</p>
+       <pre><code>
+        var nome = "Luciano"
+        window.alert(`O nome do aluno é ${nome}`)
+        </code></pre>
+    
+       <h2>Operações aritméticas</h2>
+       <ul>
+        <li>+ soma ou concatenação (string)</li>
+       </ul>
+    
+    
+        <script>
+            //window.alert('Primeiro alerta!')
+            //window.confirm('Gostando ?')
+            //window.prompt('Qual seu nome ?')
+    
+        </script>
+</body>
+
+</html>
