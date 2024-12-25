@@ -162,8 +162,61 @@
        <p>Mostra na tela uma valor</p>
        <code>media>=7 ? "Aprovado" : "Reprovado"</code>
 
-       <p>Ou ainda o caso de atribuir um valor a variável status os valores Maior ou Menor, a depender se a idade é ou não maior ou igual a 18</p>
+       <p id="paragrafo_comid">Ou ainda o caso de atribuir um valor a variável status os valores Maior ou Menor, a depender se a idade é ou não maior ou igual a 18</p>
        <code>status = idade>=18 ? "Maior" : "Menor</code>
+
+       <h1>DOM</h1>
+       <p>DOM - <em>Document Object Model</em> - Modelo de Objetos para Documentos é uma abstração que mostra como uma página web é estruturada por meio de objetos. Por meio das funcionalidades desses objetos, podem ser executadas ações na página. Como por exemplo, mostrar a URL atual da página:</p>
+       <code>document.write(window.document.URL)</code>
+
+       <p>Essa estrutura da página é chamada de árvore DOM. Um exemplo simples de uma árvore DOM de uma página: </p>
+       <img width="200" src="../imagens/DOM_tree.png" alt="Árvore DOM">
+
+
+       <h2>Selecionando Objetos</h2>
+       <h3>Pela Tag</h3>
+       <p>Seleciona-se elementos da página pela sua tag, usando o comando <mark>getElementsByTagName(tag)</mark>.</p>
+
+       <p>Selecionar o primeiro parágrafo da página</p>
+       <code>
+        //Seleciona o primeiro parágrafo <br>
+        var p1 = window.document.getElementsByTagName('p')[0] <br>
+        //Mostra seu texto na tela <br>
+        window.document.write(p1.innerText) <br>
+        //Mostrar seu texto com os tratamento html <br> 
+        window.document.write(p1.innerHTML) <br>
+        //Mudar sua cor <br>
+        p1.style.color = 'red' <br>
+        </code>
+
+       <p><em>[0]</em> - designa que só o primeiro parágrafo será selecionado.</p>
+
+       <h3>Pelo ID</h3>
+       <code>
+        //Seleciona o elemento com id = paragrafo_comid <br>
+        var paragrafo = window.document.getElementById('paragrafo_comid') <br>
+        //Mostra na tela <br>
+        window.document.write(paragrafo.innerHTML) <br>
+        //Mudar seu conteúdo <br>
+        paragrafo.style.background = 'green'
+        paragrafo.innerText = 'mudei aqui'
+       </code>
+
+       <h3>Pelo nome e pela Classe</h3>
+       <p>Seguindo o mesmo princípio de tag e ID.....</p>
+
+
+       <h3>Pelo Seletor</h3>
+       <p>Esse métodos mais recente permite selecionar os elementos pelo seu seletor do CSS.</p>
+       <code>
+        //Selecionando pelo seletor - p com id paragrafo_comid <br>
+        var p = window.document.querySelector('p#paragrafo_comid') <br>
+        //Mostrando na tela <br>
+        window.document.write(p.innerHTML) <br>
+       </code>
+
+
+
        
 
        
@@ -184,7 +237,23 @@
             //window.alert('Primeiro alerta!')
             //window.confirm('Gostando ?')
             //window.prompt('Qual seu nome ?')
-    
+            
+            //document.write(window.document.URL)
+            
+            //var p1 = window.document.getElementsByTagName('p')[0]
+            //window.document.write(p1.innerText)
+            //p1.style.color = 'red'
+
+            //Seleciona o elemento com id = paragrafo_comid
+            //var paragrafo = window.document.getElementById('paragrafo_comid')
+            //Mostra na tela
+            //window.document.write(paragrafo.innerHTML)
+            //paragrafo.style.background = 'green'
+            //paragrafo.innerText = 'mudei aqui'
+
+            //Selecionando pelo seletor - p com id paragrafo_comid
+            //var p = window.document.querySelector('p#paragrafo_comid')
+            //window.document.write(p.innerHTML)
         </script>
 </body>
 
