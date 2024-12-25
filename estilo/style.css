@@ -2,11 +2,12 @@
 
 body{
     font-family: 'Calibri, Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
     background-color: rgba(0, 0, 0, 0.562);
     color: white;
     padding-left: 10px;
     max-width: 600px;
+    text-align: justify;
 }
 
 code{

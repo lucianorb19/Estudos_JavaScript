@@ -43,7 +43,7 @@
             <li>boolean: true ou false;</li>
             <li>null;</li>
             <li>number - engloba inteiro, real (usar . e não ,), Infinity e NaN;</li>
-            <li>string - declarar com "", '', ``;</li>
+            <li>string - declarar com " ", ' ', ` `;</li>
             <li>function;</li>
             <li>symbol, object (array) e undefined ?</li>
         </ul>
@@ -73,7 +73,7 @@
        <h4>Number para String</h4>
        <p>Dado um número n</p>
        <ul>
-        <li>Sring(n);</li>
+        <li>String(n);</li>
         <li>n.toString()</li>
        </ul>
 
@@ -103,10 +103,81 @@
         window.alert(`O nome do aluno é ${nome}`)
         </code></pre>
     
-       <h2>Operações aritméticas</h2>
+       <h2>Operadores</h2>
+       <h3>Aritméticos</h3>
        <ul>
         <li>+ soma ou concatenação (string)</li>
+        <li>- subtração;
+        <li>* multiplicação;</li>
+        <li>/ divisão;</li>
+        <li>% resto da divisão;</li>
+        <li>** exponenciação;</li>
        </ul>
+
+       <p>Precedência de Operadores</p>
+       <ol>
+        <li>()</li>
+        <li>** , sqrt</li>
+        <li>/ , * , %</li>
+        <li>+ , -</li>
+       </ol>
+
+       <p>Atribuições:</p>
+        <li>x = x+2 --- x+=2</li>
+        <li>válido também para os demais operadores....</li>
+        <li>x = x+1 --- x++</li>
+       </ul>
+
+       <h3>Relacionais</h3>
+       <ul>
+        <li>> --- maior que;</li>
+        <li>< --- menor que;</li>
+        <li>>= --- maior ou igual;</li>
+        <li><= --- menor ou igual;</li>
+        <li>== --- igual a (não compara tipo);</li>
+        <li>=== --- igual a (compara tipo);</li>
+        <li>!= --- diferente de.</li>
+       </ul>
+
+       <p>Dica:
+        <ul>
+            <li><mark>5 == "5" assume valor true</mark></li>
+            <li><mark>5 === "5" assume valor false</mark></li>
+        </ul>
+       </p>
+
+       <h3>Lógicos (já com precedência)</h3>
+       <ol>
+        <li>! --- negação;</li>
+        <li>&& --- e;</li>
+        <li>|| --- ou</li>
+       </ol>
+
+       <p>Dica: Numa expressão com todos esses operadores, a precedência entre eles é: 1 - aritméticos; 2- relacionais; 3- Lógicos.</p>
+
+       <h3>Operador ternário</h3>
+       <p>É uma maneira simplificada de escrever um teste para uma expressão, que caso seja verdadeira, assume um valor, caso seja falsa, assume outro valor.</p>
+       <code>teste <mark>?</mark> true <mark>:</mark> false</code>
+       
+       <p>Mostra na tela uma valor</p>
+       <code>media>=7 ? "Aprovado" : "Reprovado"</code>
+
+       <p>Ou ainda o caso de atribuir um valor a variável status os valores Maior ou Menor, a depender se a idade é ou não maior ou igual a 18</p>
+       <code>status = idade>=18 ? "Maior" : "Menor</code>
+       
+
+       
+
+
+
+
+
+
+
+
+
+
+       <br><br>
     
     
         <script>
