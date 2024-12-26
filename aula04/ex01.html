@@ -215,8 +215,76 @@
         window.document.write(p.innerHTML) <br>
        </code>
 
+       <h2>Eventos DOM</h2>
+       <p>São interações específicas com elementos da página. Elas ocorrem em situações específicas, por exemplo:</p>
+
+       <ul>
+        <li>mouseenter - se o mouse entrar no elemento;</li>
+        <li>mousemove - toda vez que o mouse se mover dentro do elemento;</li>
+        <li>mouseout - retirar o mouse de dentro do elemento</li>
+        <li>click - clicar o mouse esquerdo;</li>
+        <li>mousedown - cliquar e ficar pressionado o botão esquerdo do mouse no elemento;</li>
+        <li>mouseup - cessar o pressionar mouse esquerdo;</li>
+       </ul>
+
+       <p>A lista de eventos é diversa, pesquisar em <ins>Event Reference MDN</ins>.</p>
+
+       <p>A utilidade desses eventos é o fato de poder ser feita uma função ou várias que só vão ser executdas caso algum evento DOM tenha sido acionado.</p>
+
+       <p>Por exemplo, mudar o texto de uma tag div caso o usuário clique nela. Para fazer isso:</p>
+
+       <p>A maneira mais organizada é, criar um id para a tag desejada, no HTML e no JS, criar <ins>listeners</ins>, um recurso que vai observar o elemento e executar a função configurada caso o evento DOM ocorra.</p>
+
+       <p>No HTML:</p>
+<pre><code>
+div id="area">
+    Interaja...
+div>
+</code></pre>
+
+        <p>No JS:</p>
+
+<pre><code>
+script>
+    var a = window.document.getElementById('area')
+    a.addEventListener('click',clicar)
+
+    function clicar(){
+        a.innerText='Cliquei'
+        a.style.background = 'red'
+    }
+script>
+</code></pre>
+
+<p>Outra maneira é chamando a função diretamente na tag do HTML:</p>
+       
+<p>No HTML:</p>
+<pre><code>
+body>
+    div id="area" onclick="clicar()">
+        Interaja
+    div>
+body>
+</code></pre>
+       <p>
+        <em>onclick</em> - Ao clicar no elemento <br>
+        <em>"clicar()"</em> - Chama a função JS clicar()
+       </p>
 
 
+<p>No script JS:</p>
+<pre><code>
+function clicar(){
+    var a = window.document.getElementById('area')
+    a.innerText = 'Cliquei!'
+    a.style.background = 'red'
+}
+</code></pre>
+
+    <p><em>var a = window.document.getElementById('area')</em> - Faz a ligação entre a variável JS <ins>a</ins> e o <ins>elemento de id area</ins>. <br>
+    <em> a.innerText = 'Cliquei!'</em> - muda o texto do elemento <br>
+    <em>a.style.background = 'red'</em> - deixa o fundo vermelho
+    </p>
        
 
        

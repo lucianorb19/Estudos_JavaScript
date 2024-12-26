@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font: normal 1em Arial;
+        }
+
+        input{
+            font: normal 1em Arial;
+            width: 100px;
+        }
+
+        div#resultado{
+            margin-top: 20px;
+        }
+    </style>
+    
+    
+    
+    <title>Soma com JS</title>
+</head>
+<body>
+    <h1>Somando 2 Valores</h1>
+    <input type="number" name="num1" id="num1">
+    <input type="number" name="num2" id="num2">
+    <!--
+    Exemplo de como seria sem listener
+    <input type="button" value="SOMAR" onclick="soma()">
+    -->
+    <input type="button" value="SOMAR" id="somar"> 
+
+    <div id="resultado">
+        
+    </div>
+
+    
+    
+    
+    <script>
+        //LISTENER
+        var cliquei_soma = window.document.getElementById('somar')
+        cliquei_soma.addEventListener('click',soma)
+        
+        function soma(){
+        //FAZENDO LIGAÇÃO COM VALORES DO JS COM HTML
+        var val1 = window.document.getElementById('num1')
+        var val2 = window.document.querySelector('input#num2')
+        var res = window.document.getElementById('resultado')
+
+        //CONVERTENDO ENTRADAS STRINGS PARA NUMEROS
+        var n1 = Number(val1.value)
+        var n2 = Number(val2.value)
+
+        //SALVANDO VALOR DA SOMA
+        var soma = n1+n2
+
+        //MOSTRANDO NA TELA
+        res.innerHTML=`A soma entre ${n1} e ${n2} é <strong>${soma}</strong> !`
+        }
+    </script>
+    
+</body>
+</html>
