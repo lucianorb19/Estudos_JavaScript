@@ -30,7 +30,7 @@
     Exemplo de como seria sem listener
     <input type="button" value="SOMAR" onclick="soma()">
     -->
-    <input type="button" value="SOMAR" id="somar"> 
+    <input type="button" value="SOMAR" id="bt_somar"> 
 
     <div id="resultado">
         
@@ -41,7 +41,7 @@
     
     <script>
         //LISTENER
-        var cliquei_soma = window.document.getElementById('somar')
+        var cliquei_soma = window.document.getElementById('bt_somar')
         cliquei_soma.addEventListener('click',soma)
         
         function soma(){

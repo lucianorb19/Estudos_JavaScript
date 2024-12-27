@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input{
+            width: 100px;
+            margin-bottom: 10px;
+        }
+
+        div#status{
+            display: inline;
+        }
+    </style>
+    
+    
+    <title>Condição Simples - Nacionalidade</title>
+</head>
+<body>
+    <h1>Condição Simples - Nacionalidade</h1>
+    
+    Em qual país você nasceu: 
+    <input type="text" name="pais_nascimento" id="pais_nascimento"> <br>
+
+    Em qual país você vive:
+    <input type="text" name="pais_vive" id="pais_vive">
+
+    <input id="bt_processar" type="button" value="PROCESSAR"> <br>
+
+    Status: 
+    <div id="status">
+
+    </div>
+
+    <script>
+        //LISTENER
+        var bt_processar_js = window.document.getElementById('bt_processar')
+        bt_processar_js.addEventListener('click',define_status)
+
+        function define_status(){
+            //LIGAR VARIÁVEIS HTML - JS
+            pais_nascimento_js = window.document.getElementById('pais_nascimento')
+            pais_nascimento_js.value = pais_nascimento_js.value.toUpperCase()
+            
+            
+            pais_vive_js = window.document.getElementById('pais_vive')
+            pais_vive_js.value = pais_vive_js.value.toUpperCase()
+           
+            status_js=window.document.querySelector('div#status')
+
+            if(pais_nascimento_js.value == pais_vive_js.value){
+                status_js.innerText = 'Vivendo no país que nasceu !'
+            }
+            else{
+                status_js.innerText = 'Estrangeiro !'
+            }
+
+        }
+    </script>
+</body>
+</html>

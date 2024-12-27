@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input{
+            width: 100px;
+            margin-bottom: 10px;
+        }
+
+        div{
+            display: inline;
+        }
+    </style>
+
+
+    <title>Condição Simples - Calculo Velocidade</title>
+</head>
+<body>
+    <h1>Condição Simples</h1>
+    <p>*Acima de 70km/h - multado</p>
+
+    Velocidade do carro: 
+    <input type="number" name="velocidade" id="velocidade">
+
+    <input id="bt_processar" type="button" value="PROCESSAR"> <br>
+
+    Status:
+    <div id="status">
+        ...
+    </div>
+
+    <script>
+        //LISTENER
+        var bt_processar_js = window.document.getElementById('bt_processar')
+        bt_processar_js.addEventListener('click',calc_status) 
+
+        //FUNÇÃO QUE CALCULA O STATUS DE ACORDO COM A VELOCIDADE
+        function calc_status(){
+            //ASSOCIANDO status HTML COM status JS
+            var status_js = window.document.getElementById('status')
+
+            //CONVERTER ENTRADA PARA NUMBER
+            var velocidade_js = window.document.getElementById('velocidade')
+            var velocidade_js1 = Number(velocidade_js.value)
+
+
+            if(velocidade_js1>70){
+                status_js.innerText='Multado !'
+            }
+            else{
+                status_js.innerText='Não multado !'
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
