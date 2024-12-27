@@ -291,17 +291,76 @@ function clicar(){
     <h3>Condições Simples</h3>
     <pre><code>
     if(_condição_){
-        _codigo_
+        _true_
     }
     </code></pre>
-       
+
+    <h3>Condições Compostas</h3>
+    <pre><code>
+    if(_condição_){
+        _true_
+    }else{
+        _false_
+    }
+    </code></pre>
+
+    <h3>Condições Aninhadas</h3>
+    <pre><code>
+    if(_condição1_){
+        _true_
+        _codigo_
+    }else if (_condição2_){
+        _false_
+        _codigo_
+    }else if(_condição3_){
+
+    }else{
+        _tudo falso chega aqui_
+    }
+    </code></pre>
+
+    <h3>Condições Múltiplas</h3>
+    <pre><code>
+    switch(variavel){
+        case valor1:
+
+        break
+        case valor2:
+
+        break
+        case valor3:
+
+        break
+        default:
+        //else do switch
+
+        break
+    }
+    </code></pre>
+    
 
        
 
 
 
 
+<h2>Date</h2>
+<pre><code>
+var agora = new Date()
+var dia_semana = agora.getDay() //dia da semana
+//sendo 
+/*
+0 - Domingo
+1 - Segunda
+2 - Terça
+3 - Quarta 
+4 - Quinta
+5 - Sexta
+6 - Sábado
+*/
 
+var hora_atual = agora.getHours()//hora atual
+</code></pre>
 
 
 
