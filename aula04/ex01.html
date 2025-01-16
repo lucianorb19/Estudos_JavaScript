@@ -67,7 +67,7 @@
        <ul>
         <li>Number.parseInt(n) - converte n para inteiro;</li>
         <li>Number.parseFloat(n) - converte para float;</li>
-        <li>Number(n) - a linguagem define se é Int ou Float.</li>
+        <li>Number(n) - a linguagem define se o resultado da conversão será Int ou Float.</li>
        </ul>
 
        <h4>Number para String</h4>
@@ -123,20 +123,20 @@
        </ol>
 
        <p>Atribuições:</p>
-        <li>x = x+2 --- x+=2</li>
+        <li>x = x+2 equivale a x+=2</li>
         <li>válido também para os demais operadores....</li>
-        <li>x = x+1 --- x++</li>
+        <li>x = x+1 equivale a x++</li>
        </ul>
 
        <h3>Relacionais</h3>
        <ul>
-        <li>> --- maior que;</li>
-        <li>< --- menor que;</li>
-        <li>>= --- maior ou igual;</li>
-        <li><= --- menor ou igual;</li>
-        <li>== --- igual a (não compara tipo);</li>
-        <li>=== --- igual a (compara tipo);</li>
-        <li>!= --- diferente de.</li>
+        <li>> ------ maior que;</li>
+        <li>< ------ menor que;</li>
+        <li>>= ---- maior ou igual;</li>
+        <li><= ---- menor ou igual;</li>
+        <li>== ---- igual a (não compara tipo);</li>
+        <li>=== -- igual a (compara tipo);</li>
+        <li>!= ----- diferente de.</li>
        </ul>
 
        <p>Dica:
@@ -171,6 +171,7 @@
 
        <p>Essa estrutura da página é chamada de árvore DOM. Um exemplo simples de uma árvore DOM de uma página: </p>
        <img width="200" src="../imagens/DOM_tree.png" alt="Árvore DOM">
+       <p>Cada página tem sua própria árvore DOM.</p>
 
 
        <h2>Selecionando Objetos</h2>
@@ -202,12 +203,18 @@
         paragrafo.innerText = 'mudei aqui'
        </code>
 
-       <h3>Pelo nome e pela Classe</h3>
+       <h3>Pelo Class e Name</h3>
        <p>Seguindo o mesmo princípio de tag e ID.....</p>
+       <code>
+        //Seleciona o primeiro parágrafo com class = escolhido
+        var paragrafo = window.document.getElementsByClassName('escolhido')[0];
+        //Seleciona o primeiro parágrafo com name = escolhido
+        var paragrafo = window.document.getElementsByName('escolhido')[0];
+       </code>
 
 
        <h3>Pelo Seletor</h3>
-       <p>Esse métodos mais recente permite selecionar os elementos pelo seu seletor do CSS.</p>
+       <p>Esse método mais recente permite selecionar os elementos pelo seu seletor do CSS.</p>
        <code>
         //Selecionando pelo seletor - p com id paragrafo_comid <br>
         var p = window.document.querySelector('p#paragrafo_comid') <br>
