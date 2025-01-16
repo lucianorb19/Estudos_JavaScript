@@ -223,14 +223,14 @@
        </code>
 
        <h2>Eventos DOM</h2>
-       <p>São interações específicas com elementos da página. Elas ocorrem em situações específicas, por exemplo:</p>
+       <p>São interações com elementos da página. Elas ocorrem em situações específicas, por exemplo:</p>
 
        <ul>
         <li>mouseenter - se o mouse entrar no elemento;</li>
         <li>mousemove - toda vez que o mouse se mover dentro do elemento;</li>
         <li>mouseout - retirar o mouse de dentro do elemento</li>
-        <li>click - clicar o mouse esquerdo;</li>
-        <li>mousedown - cliquar e ficar pressionado o botão esquerdo do mouse no elemento;</li>
+        <li>click - clicar o botão esquerdo do mouse;</li>
+        <li>mousedown - clicar e ficar pressionando o botão esquerdo do mouse no elemento;</li>
         <li>mouseup - cessar o pressionar mouse esquerdo;</li>
        </ul>
 
@@ -240,7 +240,7 @@
 
        <p>Por exemplo, mudar o texto de uma tag div caso o usuário clique nela. Para fazer isso:</p>
 
-       <p>A maneira mais organizada é, criar um id para a tag desejada, no HTML e no JS, criar <ins>listeners</ins>, um recurso que vai observar o elemento e executar a função configurada caso o evento DOM ocorra.</p>
+       <p>A maneira mais organizada é, criar um id para a tag desejada no HTML, e no JS, criar <ins>listeners</ins>, um recurso que vai observar o elemento e executar a função configurada caso o evento DOM ocorra.</p>
 
        <p>No HTML:</p>
 <pre><code>
@@ -254,6 +254,7 @@ div>
 <pre><code>
 script>
     var a = window.document.getElementById('area')
+    //click é o evento DOM, clicar é a função a ser chamada caso ele ocorra.
     a.addEventListener('click',clicar)
 
     function clicar(){
@@ -297,32 +298,30 @@ function clicar(){
 
     <h3>Condições Simples</h3>
     <pre><code>
-    if(_condição_){
-        _true_
+    if(condição){
+        codigo
     }
     </code></pre>
 
     <h3>Condições Compostas</h3>
     <pre><code>
-    if(_condição_){
-        _true_
+    if(condição){
+        codigo para true
     }else{
-        _false_
+        codigo para false
     }
     </code></pre>
 
     <h3>Condições Aninhadas</h3>
     <pre><code>
-    if(_condição1_){
-        _true_
-        _codigo_
-    }else if (_condição2_){
-        _false_
-        _codigo_
-    }else if(_condição3_){
-
+    if(condição1){
+        codigo para true
+    }else if (condição2){
+        codigo para true condição2
+    }else if(condição3){
+        codigo para true condição3
     }else{
-        _tudo falso chega aqui_
+        se tudo for falso, chega aqui
     }
     </code></pre>
 
@@ -345,11 +344,6 @@ function clicar(){
     }
     </code></pre>
     
-
-       
-
-
-
 
 <h2>Date</h2>
 <pre><code>

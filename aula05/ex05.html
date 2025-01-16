@@ -17,6 +17,7 @@
         num_decimal = num.toFixed(3)
         num_virgula = num_decimal.replace(".",",")
         num_br = num.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
+        
         document.write(`Número com 3 casas decimais: ${num_decimal}<br>`)
         document.write(`Número com vígula: ${num_virgula}<br>`)
         document.write(typeof num_virgula + '<br>')
