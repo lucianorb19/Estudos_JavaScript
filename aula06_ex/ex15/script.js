@@ -70,7 +70,6 @@ function verificar(){
         resultado.appendChild(img)//MOSTRA A IMAGEM
         }
         
-        
     }
    
 }
