@@ -6,20 +6,33 @@
     <link rel="stylesheet" href="estilo.css">
     
     
-    <title>Modelo de Exercício</title>
+    <title>Verificador de Idade</title>
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Verificador de Idade</h1>
     </header>
 
     <section>
        <div>
-        <p>Div1</p>
+        <p>Ano de Nascimento: 
+            <input type="number" name="ano_nascimento" id="id_ano_nascimento" min="0" required>
+        </p>
+        <p>Sexo:
+            <input type="radio" name="radio_sexo" id="masculino" checked>
+            <label for="masculino">Masculinho</label>
+            <input type="radio" name="radio_sexo" id="feminino">
+            <label for="feminino">Feminino</label>
+        </p>
+        <p> <!--
+            Não é type:submit pq não está em um form, ao invés disso, é chamada uma função js verificar() quando é clicado
+            -->
+            <input type="button" value="Verificar" onclick="verificar()">
+        </p>
        </div>
 
-       <div>
-        <p>Div2</p>
+       <div id="resultado">
+        <p>Preencha os dados para ver o resultado!</p>
        </div>
     </section>
 
@@ -28,5 +41,7 @@
     </footer>
     
     <script src="script.js"></script>
+
+    <img id="foto" src="" alt="">
 </body>
 </html>
