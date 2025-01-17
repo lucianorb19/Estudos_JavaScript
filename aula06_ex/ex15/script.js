@@ -40,6 +40,7 @@ function verificar(){
         //SE FOI MARCADO MASCULINO
         if(sexo[0].checked){//HOMEM
             genero='Homem'
+            
             //CONDICIONAL DEFINIÇÃO DA FOTO PELA IDADE
             if (idade >=0 && idade <10){//CRIANÇA
                 img.setAttribute('src','imagens/criancaM.png')
@@ -62,11 +63,13 @@ function verificar(){
                 img.setAttribute('src','imagens/idosoF.png')
             }
         }
-        }
-        
         //NÃO FUNCIONA FORA DO IF. ESCOPO ?
+        resultado.style.textAlign= 'center'//NÃO FUNCIONA
         resultado.innerHTML=`${genero} de ${idade} anos.`
         resultado.appendChild(img)//MOSTRA A IMAGEM
+        }
+        
+        
     }
    
 }
