@@ -370,6 +370,64 @@ function clicar(){
         console.log(contador)
     }
     </code></pre>
+
+    <h2>Variáveis Compostas</h2>
+    <h3>Array / Vetor</h3>
+
+    <h4>Declaração</h4>
+    <pre><code>
+    let letras = [a,b,c]
+    //a - índice 0
+    //b - índice 1
+    //c - índice 2
+    </code></pre>
+
+    <h4>Consultar elementos</h4>
+    <p>Numa posição específica</p>
+    <pre><code>
+    console.log(letras[1])
+    //mostra o segundo elemento do vetor
+    </code></pre>
+
+    <p>Percorrer Vetor com For</p>
+    <pre><code>
+    let pos_letra
+    for(pos_letra=0;pos_letra<=(letras.length)-1;pos_letra++){
+        console.log(`Posição ${pos_letra} - valor ${letras[pos_letra]}`)
+    }
+    </code></pre>
+
+    <p>Ou, usando a versão simplificada</p>
+    <pre><code>
+    for(let pos in letras){
+        console.log(`Posição ${pos} - valor ${letras[pos]}`)
+    }
+    </code></pre>
+
+    <p>Consultar o índice pelo valor</p>
+    <pre><code>
+    console.log(letras.indexOf(b))
+    //Retorna o índice do elemento de valor b
+    //*Retorna -1 caso não exista o elemento
+    </code></pre>
+
+    <h4>Adicionar elementos</h4>
+    <p>Adicionar em um índice específico</p>
+    <pre><code>
+    let letras = [a,b,c]
+    letras[3] = d
+    </code></pre>
+
+    <p>Adicionar ao final do vetor</p>
+    <pre><code>
+    letras.push('d')
+    </code></pre>
+
+    <h4>Ordenar Vetor</h4>
+    letras.sort()
+
+    <h4>Atributos do Vetor</h4>
+    <p>letras.length - tamanho do vetor</p>
     
 
 <h2>Date</h2>
