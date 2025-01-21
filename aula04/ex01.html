@@ -51,6 +51,24 @@
         <p>Pra identificar o tipo da variável, usar a função <mark>typeof</mark>. <br>
         <code>tipeof nome</code>
         </p>
+
+        <h2>Date</h2>
+<pre><code>
+var agora = new Date()
+var dia_semana = agora.getDay() //dia da semana
+//sendo 
+/*
+0 - Domingo
+1 - Segunda
+2 - Terça
+3 - Quarta 
+4 - Quinta
+5 - Sexta
+6 - Sábado
+*/
+
+var hora_atual = agora.getHours()//hora atual
+</code></pre>
     
     
        <h3>Manipulação de variáveis</h3>
@@ -428,25 +446,42 @@ function clicar(){
 
     <h4>Atributos do Vetor</h4>
     <p>letras.length - tamanho do vetor</p>
+
+
+    <h2>Funções</h2>
+
+    <pre><code>
+    function nome_funcao(parametros){
+        codigo
+        retorno
+    }
+
+    a=nome_funcao(x) // chamada da função
+    </code></pre>
+
+    <h3>Parâmetros Opcionais</h3>
+    <p>Na construção da função, definir valores para os parâmetros, caso na sua chama, não seja definido.</p>
+    <pre><code>
+    function soma(a=0,b=0){
+        return a+b
+    }
+
+    console.log(soma(2))
+    //Resultado é 2, porque a=2 e b=0
+    </code></pre>
+
+    <h3>Variável é Função (????)</h3>
+    <pre><code>
+    let dobrar = function(num){
+        return x*2
+    }
+
+    console.log(dobrar(10))
+    //Resultado é 20, porque 10*2 = 20
+    </code></pre>
     
 
-<h2>Date</h2>
-<pre><code>
-var agora = new Date()
-var dia_semana = agora.getDay() //dia da semana
-//sendo 
-/*
-0 - Domingo
-1 - Segunda
-2 - Terça
-3 - Quarta 
-4 - Quinta
-5 - Sexta
-6 - Sábado
-*/
 
-var hora_atual = agora.getHours()//hora atual
-</code></pre>
 
 
 
