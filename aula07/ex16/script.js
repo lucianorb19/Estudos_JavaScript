@@ -1,5 +1,5 @@
 function contar(){
-    //Variáveis JS com campos HTML
+    //Variáveis JS com campos início fim passo
     let inicio = window.document.getElementById('id_inicio')
     let fim = window.document.getElementById('id_fim')
     let passo = window.document.getElementById('id_passo')
@@ -19,7 +19,7 @@ function contar(){
         //CASO PASSO SEJA 0 OU NEGATIVO, VIRA 1
         if(p<=0){
             window.alert('Passo inválido! Considerando passo 1...')
-            //passo.innerText='1'
+            passo.value=1//MOSTRA NA TELA QUE O PASSO AGORA É 1
             p=1
         }
 
