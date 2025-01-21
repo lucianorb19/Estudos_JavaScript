@@ -28,8 +28,55 @@ function inLista(num, vetor){
 function adicionar(){
     //SE NÚMERO ESTIVER ENTRE 1 E 100 E NÃO ESTIVER NA LISTA
     if(isNumero(numero.value) && !inLista(numero.value,numeros)){
-        window.alert('OK')
+        //ADICIONO AO VETOR
+        numeros.push(Number(numero.value))
+
+        //MOSTRO NA TELA OS VALORES ADICIONADOS
+        let item = document.createElement('option')
+        item.text = `\u{27A1} ${numero.value}`
+        lista.appendChild(item)
+        //AO ADICIONAR UM NÚMERO, LIMPAR AS ESTATÍSTICAS ANTERIORES
+        resultado.innerHTML=''
     }else{//NÚMERO NÃO ESTÁ ENTRE 1 E 100 OU ESTÁ NA LISTA
         window.alert("Valor inválido ou já está na lista!")
+    }
+
+    //LIMPAR OQ ESTIVER NO CAMPO NÚMERO E POSICIONAR O CURSOR
+    //NOVAMENTE NO CAMPO
+    numero.value=""
+    numero.focus()
+}
+
+function finalizar(){
+    //SE EU TENTAR FINALIZAR COM O VETOR VAZIO
+    if(numeros.length == 0){
+        window.alert('Adicione valores antes de finalizar!')
+    }else{//HAVENDO NÚMEROS NO VETOR
+        let total_numeros = numeros.length
+        //DEFINIÇAO DE MAIOR,MENOR,SOMA E MÉDIA
+        let maior = numeros[0]
+        let menor = numeros[0]
+        let soma = 0
+        let media = 0
+        for(let pos in numeros){
+            if(numeros[pos]> maior){
+                maior = numeros[pos]
+            }
+            if(numeros[pos]<menor){
+                menor = numeros[pos]
+            }
+            soma+=numeros[pos]
+        }
+        media=soma/total_numeros
+
+        resultado.innerHTML=''
+        resultado.innerHTML=
+        `<p>
+            Total de números: ${total_numeros}<br>
+            Maior: ${maior}<br>
+            Menor: ${menor}<br>
+            Soma total: ${soma}<br>
+            Media: ${media}<br>
+        </p>`
     }
 }
