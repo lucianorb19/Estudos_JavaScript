@@ -49,7 +49,7 @@
         </ul>
     
         <p>Pra identificar o tipo da variável, usar a função <mark>typeof</mark>. <br>
-        <code>tipeof nome</code>
+        <code>typeof(nome)</code> OU <code>typeof nome</code>
         </p>
 
         <h2>Date</h2>
@@ -197,48 +197,48 @@ var hora_atual = agora.getHours()//hora atual
        <p>Seleciona-se elementos da página pela sua tag, usando o comando <mark>getElementsByTagName(tag)</mark>.</p>
 
        <p>Selecionar o primeiro parágrafo da página</p>
-       <code>
-        //Seleciona o primeiro parágrafo <br>
-        var p1 = window.document.getElementsByTagName('p')[0] <br>
-        //Mostra seu texto na tela <br>
-        window.document.write(p1.innerText) <br>
-        //Mostrar seu texto com os tratamento html <br> 
-        window.document.write(p1.innerHTML) <br>
-        //Mudar sua cor <br>
-        p1.style.color = 'red' <br>
-        </code>
+<pre><code>
+//Seleciona o primeiro parágrafo
+var p1 = window.document.getElementsByTagName('p')[0]
+//Mostra seu texto na tela
+window.document.write(p1.innerText)
+//Mostrar seu texto com os tratamentos html
+window.document.write(p1.innerHTML)
+//Mudar sua cor
+p1.style.color = 'red'
+</code></pre>
 
        <p><em>[0]</em> - designa que só o primeiro parágrafo será selecionado.</p>
 
        <h3>Pelo ID</h3>
-       <code>
-        //Seleciona o elemento com id = paragrafo_comid <br>
-        var paragrafo = window.document.getElementById('paragrafo_comid') <br>
-        //Mostra na tela <br>
-        window.document.write(paragrafo.innerHTML) <br>
-        //Mudar seu conteúdo <br>
-        paragrafo.style.background = 'green'
-        paragrafo.innerText = 'mudei aqui'
-       </code>
+<pre><code>
+//Seleciona o elemento com id = paragrafo_comid
+var paragrafo = window.document.getElementById('paragrafo_comid')
+//Mostra na tela
+window.document.write(paragrafo.innerHTML)
+//Mudar seu conteúdo
+paragrafo.style.background = 'green'
+paragrafo.innerText = 'mudei aqui'
+</code></pre>
 
        <h3>Pelo Class e Name</h3>
        <p>Seguindo o mesmo princípio de tag e ID.....</p>
-       <code>
-        //Seleciona o primeiro parágrafo com class = escolhido
-        var paragrafo = window.document.getElementsByClassName('escolhido')[0];
-        //Seleciona o primeiro parágrafo com name = escolhido
-        var paragrafo = window.document.getElementsByName('escolhido')[0];
-       </code>
+<pre><code>
+//Seleciona o primeiro parágrafo com class = escolhido
+var paragrafo = window.document.getElementsByClassName('escolhido')[0];
+//Seleciona o primeiro parágrafo com name = escolhido
+var paragrafo = window.document.getElementsByName('escolhido')[0]
+</code></pre>
 
 
        <h3>Pelo Seletor</h3>
        <p>Esse método mais recente permite selecionar os elementos pelo seu seletor do CSS.</p>
-       <code>
-        //Selecionando pelo seletor - p com id paragrafo_comid <br>
-        var p = window.document.querySelector('p#paragrafo_comid') <br>
-        //Mostrando na tela <br>
-        window.document.write(p.innerHTML) <br>
-       </code>
+<pre><code>
+//Selecionando pelo seletor - p com id paragrafo_comid
+var p = window.document.querySelector('p#paragrafo_comid')
+//Mostrando na tela
+window.document.write(p.innerHTML)
+</code></pre>
 
        <h2>Eventos DOM</h2>
        <p>São interações com elementos da página. Elas ocorrem em situações específicas, por exemplo:</p>
@@ -479,6 +479,37 @@ function clicar(){
     console.log(dobrar(10))
     //Resultado é 20, porque 10*2 = 20
     </code></pre>
+
+    <h2>Objetos</h2>
+    <p>São estruturas compostas que permitem criar campos de diferentes tipos com nomes ao invés de índices.</p>
+    
+    <h3>Declaração</h3>
+    <pre><code>
+    let pessoa{
+        nome: 'Luciano',
+        idade: 28,
+        sexo: 'M'
+        peso: 85.2
+        engordar(p){
+            this.peso += p
+        }
+    }
+
+    //nome, idade e sexo, peso - atributos
+    //engordar - função do objeto que faz seu próprio atributo peso aumentar
+    </code></pre>
+
+
+    <h2>ESTUDAR</h2>
+    <ul>
+        <li>Functions</li>
+        <li>Objetos</li>
+        <li>Modularização</li>
+        <li>RegEx</li>
+        <li>Json</li>
+        <li>AJAX</li>
+        <li>NodeJS</li>
+    </ul>
     
 
 

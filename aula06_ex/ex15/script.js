@@ -12,7 +12,7 @@ function verificar(){
     if(ano_nascimento.value == ""){
         window.alert("[Erro] - Preencha o campo Ano de Nascimento.")
     } else if(Number(ano_nascimento.value) > ano_atual){
-        window.alert("[Erro] - Ano de nascimento imcompatível! Tente novamente.")
+        window.alert("[Erro] - Ano de nascimento incompatível! Tente novamente.")
     }else{
         //CONDICIONAL IDADE MAIOR QUE 125 NÃO FUNCIONA
         var idade = ano_atual - Number(ano_nascimento.value)
@@ -28,7 +28,7 @@ function verificar(){
         //CÁLCULO IDADE
         
 
-        //INCLUINDO IMAGEM NO HTML PELO JS - PRIMEIRO A TAG IMG
+        //CRIANDO ELEMENTO img QUE VAI SER INCLUÍDO NO HTML
         var img = document.createElement('img')
         img.setAttribute('id', 'foto')
         /*Seria o mesmo que criar no HTML

@@ -7,7 +7,7 @@ function par_impar(numero){
     }
 }
 
-console.log(par_impar('a'))
+console.log(par_impar(50))
 
 
 

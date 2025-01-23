@@ -34,6 +34,7 @@ function adicionar(){
         //MOSTRO NA TELA OS VALORES ADICIONADOS
         let item = document.createElement('option')
         item.text = `\u{27A1} ${numero.value}`
+        //ADICIONO AO SELECT, A OPTION, QUE É UM ELEMENTO CONTENDO O TEXTO "=> NUMERO"
         lista.appendChild(item)
         //AO ADICIONAR UM NÚMERO, LIMPAR AS ESTATÍSTICAS ANTERIORES
         resultado.innerHTML=''
@@ -69,7 +70,10 @@ function finalizar(){
         }
         media=soma/total_numeros
 
+        //ESVAZIANDO O CAMPO CADA VEZ QUE FINALIZO
         resultado.innerHTML=''
+
+        //MOSTRANDO NOVOS RESULTADOS
         resultado.innerHTML=
         `<p>
             Total de números: ${total_numeros}<br>
