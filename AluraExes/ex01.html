@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício01-05</title>
+</head>
+<body>
+    <script>
+       //--------------------------------------------------------------------
+       //EXERCÍCIO 1
+       let dia_semana = window.prompt("Qual o dia da semana?")
+       dia_semana = dia_semana.toUpperCase() 
+       
+       if(dia_semana == "SÁBADO" || dia_semana == "SABADO"|| dia_semana == "DOMINGO"){
+        window.alert("Bom fim de semana")
+       }else{
+        window.alert("Boa semana!")
+       }
+
+       //--------------------------------------------------------------------
+       //EXERCÍCIO 2
+       let numero = window.prompt("Digite um número")
+        numero = Number(numero)
+        if(numero >= 0){
+            window.alert("Número positivo")
+        }else{
+            window.alert("Número negativo")
+        }
+
+       //--------------------------------------------------------------------
+       //EXERCÍCIO 3
+       let pontuacao = Number(window.prompt("Qual a pontuação final do jogo? "))
+        if(pontuacao>=100){
+            window.alert("Parabéns, você venceu!")
+        }else{
+            window.alert("Tente novamente para ganhar!")
+        }
+
+       //--------------------------------------------------------------------
+       //EXERCÍCIO 4
+       let saldo = Number(window.prompt("Digite o saldo da conta"))
+       window.alert(`Saldo da conta: ${saldo}`)
+
+       //--------------------------------------------------------------------
+       //EXERCÍCIO 5
+       let nome = window.prompt("Digite o seu nome:")
+       window.alert(`Seu nome é ${nome}`)
+    </script>
+</body>
+</html>

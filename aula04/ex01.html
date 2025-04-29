@@ -99,8 +99,8 @@ var hora_atual = agora.getHours()//hora atual
        <p>Dada uma variável string nome</p>
        <ul>
         <li>nome.length - tamanho da variável;</li>
-        <li>nome.toUpperCase() - torna todas letras maiúsculas;</li>
-        <li>nome.toLowerCase() - torna todas letras minúsculas;</li>
+        <li>nome = nome.toUpperCase() - torna todas letras maiúsculas;</li>
+        <li>nome = nome.toLowerCase() - torna todas letras minúsculas;</li>
         <li>nome.replace("x","y") - troca todos caractéres x por y.</li>
        </ul>
 
@@ -182,6 +182,21 @@ var hora_atual = agora.getHours()//hora atual
 
        <p id="paragrafo_comid">Ou ainda o caso de atribuir um valor a variável status os valores Maior ou Menor, a depender se a idade é ou não maior ou igual a 18</p>
        <code>status = idade>=18 ? "Maior" : "Menor</code>
+
+       <h2>Math.random</h2>
+       <p>Geração de números aleatórios entre 0 e 1 (1 não incluso). Para gerar números inteiros:</p>
+       <ul>
+        <li>let numero = parseInt(Math.random()*10) - <em>Número inteiro aleatório entre 0 e 9</em>;</li>
+        <li>let numero = parseInt(Math.random()*3)+1 - <em>Número inteiro aleatório inteiro entre 1 e 3</em>;</li>
+        <li>let numero = parseInt(Math.random()*10)+1 - <em>Número inteiro aleatório inteiro entre 1 e 10</em>;</li>
+        <li>let numero = parseInt(Math.random()*100)+1 - <em>Número inteiro aleatório inteiro entre 1 e 100</em>;</li>
+        <li>let numero = parseInt(Math.random()*1000)+1 - <em>Número inteiro aleatório entre 1 e 1000</em>;</li>
+
+       </ul>
+
+
+
+
 
        <h1>DOM</h1>
        <p>DOM - <em>Document Object Model</em> - Modelo de Objetos para Documentos é uma abstração que mostra como uma página web é estruturada por meio de objetos. Por meio das funcionalidades desses objetos, podem ser executadas ações na página. Como por exemplo, mostrar a URL atual da página:</p>
@@ -499,6 +514,8 @@ function clicar(){
     //engordar - função do objeto que faz seu próprio atributo peso aumentar
     </code></pre>
 
+    <h2>ANOTAÇÕES</h2>
+    <p>Live Server: extensão VS Code que atualiza o código HTML/CSS/JS com o navegador (sem precisar ficar recarregando o navegador). Para usá-lo num arquivo, clicar com botão direito -> abrir com Live Server</p>
 
     <h2>ESTUDAR</h2>
     <ul>
