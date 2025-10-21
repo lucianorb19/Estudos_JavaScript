@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilo/style.css">
+    <link rel="stylesheet" href="estilo/style.css">
     
     <title>Primeiros Passos</title>
 </head>
@@ -28,7 +28,31 @@
         <p>Com <mark>//</mark> ou <mark>/**/</mark></p>
     
         <h2>Variáveis JS</h2>
-        <p>Os nomes de variáveis no JS são declaradas por <mark>var nome_variavel</mark>, seguindo o seguinte:</p>
+        <p>let - declaração de variáveis. Aceita declaração sem atribuir valor.</p>
+        <pre><code>
+let nome;
+nome = 'Luciano';
+        </code></pre>
+
+        <p>const - contatante. Precisa de atribuição já na declaração.</p>
+        <code>cost nome = 'Luciano';</code>
+
+        <p>var - Está caindo em desuso. Permite mudanças que nem sempre são desejáveis.</p>
+        <p>Uma variável criada sem determinar se é let, var ou const, assume tipo var, por padrão.</p>
+
+        <h3>Interpretação de código via NodeJs</h3>
+        <p>Abrir o terminar do VSCode na pasta que contenha o arquivo JS</p>
+        <code>node _nome arquivo js_</code>
+
+        <h3>Escopo</h3>
+        <p><ul>
+            <li>Variáveis com escopo para: bloco/função, global;</li>
+            <li>Variáveis let e const declaradas dentro de bloco, só são acessíveis no bloco;</li>
+            <li>Variáveis var declaradas dentro do bloco, são acessíveis dentro e fora do bloco;</li>
+            <li>Variáveis declaradas globalmente, são acessíveis globalmente.</li>
+        </ul></p>
+
+        <h3>Nomes</h3>
         <ul>
             <li>Podem começar com letra, $ ou _  ;</li>
             <li>Não podem começar com número;</li>
@@ -38,7 +62,7 @@
             <li>Case Sensitive;</li>
         </ul>
     
-        <p>Tipos de variáveis:</p>
+        <h3>Tipos de variáveis</h3>
         <ul>
             <li>boolean: true ou false;</li>
             <li>null;</li>
@@ -203,7 +227,7 @@ var hora_atual = agora.getHours()//hora atual
        <code>document.write(window.document.URL)</code>
 
        <p>Essa estrutura da página é chamada de árvore DOM. Um exemplo simples de uma árvore DOM de uma página: </p>
-       <img width="200" src="../imagens/DOM_tree.png" alt="Árvore DOM">
+       <img width="200" src="imagens/DOM_tree.png" alt="Árvore DOM">
        <p>Cada página tem sua própria árvore DOM.</p>
 
 
