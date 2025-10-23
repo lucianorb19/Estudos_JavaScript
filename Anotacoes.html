@@ -65,11 +65,11 @@ nome = 'Luciano';
         <h3>Tipos de variáveis</h3>
         <ul>
             <li>boolean: true ou false;</li>
-            <li>null;</li>
+            <li>null; undefined;</li>
             <li>number - engloba inteiro, real (usar . e não ,), Infinity e NaN;</li>
             <li>string - declarar com " ", ' ', ` `;</li>
             <li>function;</li>
-            <li>symbol, object (array) e undefined ?</li>
+            <li>symbol, object (array) e undefined</li>
         </ul>
     
         <p>Pra identificar o tipo da variável, usar a função <mark>typeof</mark>. <br>
@@ -119,6 +119,57 @@ var hora_atual = agora.getHours()//hora atual
         <li>n.toString()</li>
        </ul>
 
+       <h4>Verificar se variável não é número ou não pode ser convertido para número</h4>
+       <p>Usar a função <strong>isNan (<em>is not a number</em>)</strong>.</p>
+       <pre><code>
+const var1 = "Luciano";
+const var2 = 10;
+const var3 = "10";
+
+console.log(`Não são ou não podem ser numéricos: \n
+    var1: ${isNaN(var1)}\n
+    var2: ${isNaN(var2)}\n
+    var3: ${isNaN(var3)}\n`);
+       </code></pre>
+
+       <h4>null e undefined</h4>
+       <p>null pode ser o valor definido intencionalmente para alguma variável que não possui valor. <br>
+          undefined é o valor atribuído automaticamente quando uma variável é declarada e nenhum valor é atribuído a ela. Esse "valor" undefined também é esperado em algumas situações, no lugar de exceções.</p>
+
+          <code>const nome = null; //null</code> <br>
+          <code>const nome; //undefined</code>
+
+        <pre><code>
+let nota1 = 7;
+let nota2;
+
+console.log(nota1 + null); //resultado 7
+console.log(nota1 + nota2); //resultado NaN
+        </code></pre>
+
+        <h4>Symbol</h4>
+        <p>O tipo Symbol é um dos tipos primitivos em JavaScript, introduzido no ES6 (ECMAScript 2015), e representa um identificador único e imutável. Símbolos são frequentemente utilizados para criar propriedades de objeto que são únicas e não interferem com outras propriedades existentes.</p>
+
+        <pre><code>
+// Criando um símbolo
+const meuSimbolo = Symbol();
+
+// Símbolos podem receber uma descrição (opcional)
+const simboloComDescricao = Symbol('descricao_do_simbolo');
+
+// Símbolos são únicos
+const outroSimbolo = Symbol();
+console.log(meuSimbolo === outroSimbolo); // Saída: false
+
+// Símbolos podem ser usados como chaves de propriedades de objetos
+const obj = {
+  [meuSimbolo]: 'valor_do_simbolo'
+};
+
+// Acessando a propriedade usando o símbolo como chave
+console.log(obj[meuSimbolo]); // Saída: 'valor_do_simbolo'
+        </code></pre>
+
        <h3>Formatação de Strings</h3>
        <p>Dada uma variável string nome</p>
        <ul>
@@ -126,7 +177,21 @@ var hora_atual = agora.getHours()//hora atual
         <li>nome = nome.toUpperCase() - torna todas letras maiúsculas;</li>
         <li>nome = nome.toLowerCase() - torna todas letras minúsculas;</li>
         <li>nome.replace("x","y") - troca todos caractéres x por y.</li>
+        <li>includes() - verifica se uma string está contida em outra;
        </ul>
+
+       <pre><code>
+const texto = 'estudando JavaScript';
+texto.includes('Java'); // retorna true
+       </code></pre>
+
+       <p>Como adicionar texto com aspas simples e duplas dentro de uma string? <br>
+          Usar `` para declarar a string e as aspas normalmente dentro.</p>
+        
+          <pre><code>
+const frase = `Então ele disse: "goiaba!"`;
+console.log(frase);
+          </code></pre>
 
        <h3>Formatação de Números</h3>
        <p>Dada uma variável number num</p>
@@ -135,7 +200,6 @@ var hora_atual = agora.getHours()//hora atual
         <li>num.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) - formata o número para real brasileiro (memorizo nuuunca);</li>
         <li>num.replace("x","y") - troca todos caractéres x por y (torna o número uma string)</li>
        </ul>
-
 
 
        <h2>Template String</h2>
@@ -217,10 +281,6 @@ var hora_atual = agora.getHours()//hora atual
         <li>let numero = parseInt(Math.random()*1000)+1 - <em>Número inteiro aleatório entre 1 e 1000</em>;</li>
 
        </ul>
-
-
-
-
 
        <h1>DOM</h1>
        <p>DOM - <em>Document Object Model</em> - Modelo de Objetos para Documentos é uma abstração que mostra como uma página web é estruturada por meio de objetos. Por meio das funcionalidades desses objetos, podem ser executadas ações na página. Como por exemplo, mostrar a URL atual da página:</p>
