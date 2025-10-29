@@ -52,7 +52,7 @@ nome = 'Luciano';
             <li>Variáveis declaradas globalmente, são acessíveis globalmente.</li>
         </ul></p>
 
-        <h3>Nomes</h3>
+        <h3>Nomes de variáveis</h3>
         <ul>
             <li>Podem começar com letra, $ ou _  ;</li>
             <li>Não podem começar com número;</li>
@@ -577,6 +577,7 @@ function clicar(){
 
     <h2>Funções</h2>
 
+    <h3>Declaração de funções (tradicional)</h3>
     <pre><code>
     function nome_funcao(parametros){
         codigo
@@ -597,15 +598,62 @@ function clicar(){
     //Resultado é 2, porque a=2 e b=0
     </code></pre>
 
-    <h3>Variável é Função (????)</h3>
+    <h3>Expressão de Função</h3>
+    <p>É uma construção diferente da tradicional que permite construir uma variável que assume o valor do return de uma função.</p>
+
     <pre><code>
     let dobrar = function(num){
-        return x*2
+        return num*2
     }
 
     console.log(dobrar(10))
     //Resultado é 20, porque 10*2 = 20
     </code></pre>
+
+    <p>Outro exemplo</p>
+    <pre><code>
+    let estudanteReprovou = function(notaFinal, faltas){
+        if(notaFinal < 7 || faltas > 4){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    console.log(estudanteReprovou(8, 6));
+    console.log(estudanteReprovou(9, 1));
+    </code></pre>
+
+    <h3><em>Arrow Functions</em></h3>
+    <p>Assim como expressões de função, permitem atribuir o valor do retorno de uma função a uma variável. Seus diferenciais são o uso de '=>' e o fato de podermos suprimir as 'function', '{}' e o 'return' (em casos de retornos simples).</p>
+
+    <pre><code>
+    let estudanteReprovou = (notaFinal, faltas) => {
+        if(notaFinal < 7 || faltas > 4){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    console.log(estudanteReprovou(8, 6));
+    console.log(estudanteReprovou(9, 1));
+    </code></pre>
+
+    <p>Outro exemplo, um caso simples de exibir nome, onde as supressões são feitas</p>
+
+    <pre><code>
+    //DECLARAÇÃO
+    let exibeNome = (nome) => nome;
+
+    //USO
+    console.log(exibeNome("Luciano"));  
+    </code></pre>
+
+
+
+    <p>Ambas são comuns no JS, e uma diferença crucial entre elas é o <em>hoisting (içar)</em>. Isso significa que, no modelo tradicional de construir funções, mesmo que a declaração da função esteja no final do arquivo / após seu uso, o programa funciona da mesma forma, porque ele lê primeiro as declarações de função. <br>
+    Isso não acontece no uso de expressões de função ou <em>arrow functions</em>, que precisam de sua declaração antes do uso.</p>
 
     <h2>Objetos</h2>
     <p>São estruturas compostas que permitem criar campos de diferentes tipos com nomes ao invés de índices.</p>

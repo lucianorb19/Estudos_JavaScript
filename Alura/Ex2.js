@@ -13,7 +13,7 @@ Declare duas variáveis, uma inicializada com valor null e outra que não recebe
 let var1 = null;
 let var2;
 
-console.log(`var1: ${var1}\nvar2: ${var2}`);
+console.log(` var1: ${var1}\n var2: ${var2}`);
 //------------------------------------------------------
 
 Crie 3 variáveis de tipos diferentes, utilize template strings para combinar os diferentes tipos de dados (number, string, boolean) em uma única string e exiba o resultado no console.
