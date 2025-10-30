@@ -17,6 +17,8 @@
             <li><mark>window.alert</mark>('Mensagem') - mostra algo na tela (alerta do navegador);</li>
             <li><mark>document.write</mark>('Mensagem') - mostra algo na tela (escreve no documento);</li>
             <li><mark>window.confirm</mark>('Mensagem') - mostra algo e o usuário precisa confirmar;</li>
+            <li>console.log() - mostra a mensagem no console</li>
+            <li>process.stdout.write - mensagem no console sem quebra de linha</li>
         </ul>
 
         <h2>Entrada do usuário</h2>
@@ -519,6 +521,8 @@ function clicar(){
 
     <h2>Variáveis Compostas</h2>
     <h3>Array / Vetor</h3>
+    <p>Pode armazenar variáveis de diferentes tipos. <br>
+       Pode ser declarado como const e ter seus valores alterados.</p>
 
     <h4>Declaração</h4>
     <pre><code>
@@ -526,6 +530,17 @@ function clicar(){
     //a - índice 0
     //b - índice 1
     //c - índice 2
+    </code></pre>
+
+    <h4>Array bidimensional</h4>
+    <pre><code>
+const alunos = ['Luciano','Gustavo','Marcelo'];
+const notas = [8, 8.5, 7];
+
+const lista = [alunos, notas];
+
+console.log(lista[0][1]); //em alunos, quem está na posição 1
+console.log(lista[1][0]); //em notas, elemento de posição 0
     </code></pre>
 
     <h4>Consultar elementos</h4>
@@ -564,6 +579,11 @@ function clicar(){
     letras[3] = d
     </code></pre>
 
+    <h4>Excluir elementos</h4>
+    <ul>
+        <li>letras.pop() - excluir último elemento</li>
+    </ul>
+
     <p>Adicionar ao final do vetor</p>
     <pre><code>
     letras.push('d')
@@ -574,6 +594,13 @@ function clicar(){
 
     <h4>Atributos do Vetor</h4>
     <p>letras.length - tamanho do vetor</p>
+
+    <h4>Outros métodos</h4>
+    <ul>
+        <li>vetorNovo = vetor.slice(x,y) - gera uma nova lista da posição x até y-1</li>
+        <li>vetor.splice(x,y,z) - iniciando da posição x, excluir y elementos e adicionar o elemento z na posição x (jogando demais elementos para frente)</li>
+        <li>vetorNovo = vetor.concat(vetor1) - gera um vetor concatenado de outros dois</li>
+    </ul>
 
 
     <h2>Funções</h2>
