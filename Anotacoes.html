@@ -558,10 +558,19 @@ console.log(lista[1][0]); //em notas, elemento de posição 0
     }
     </code></pre>
 
-    <p>Ou, usando a versão simplificada</p>
+    <p>Ou, usando as versões simplificadas</p>
+
+    <p>Acessando os índices</p>
     <pre><code>
-    for(let pos in letras){
+    for(let pos <strong>in</strong> letras){
         console.log(`Posição ${pos} - valor ${letras[pos]}`)
+    }
+    </code></pre>
+
+    <p>Acessando os elementos</p>
+    <pre><code>
+    for(let elemento <strong>of</strong> letras){
+        console.log(`${elemento}`)
     }
     </code></pre>
 
@@ -595,11 +604,28 @@ console.log(lista[1][0]); //em notas, elemento de posição 0
     <h4>Atributos do Vetor</h4>
     <p>letras.length - tamanho do vetor</p>
 
+    <h4>Desestruturar um vetor</h4>
+    <p>Significa atribuir cada elemento do vetor a uma variável nova. <br>
+       Para um vetor bidimensional, por exemplo:</p>
+    <pre><code>
+    const lista1 = ["Luciano", "Gustavo", "Lucas"];
+    const lista2 = ["Mateus","Gabriela","Amanda"];
+    const listaNomes = [lista1,lista2];
+
+    console.log(listaNomes);// [["Luciano", "Gustavo", "Lucas"],["Mateus","Gabriela","Amanda"]]
+
+    const [listaNova1, listaNova2] = listaNomes;
+    //listaNova1 = ["Luciano", "Gustavo", "Lucas"];
+    //listaNova2 = ["Mateus","Gabriela","Amanda"];
+    </code></pre>
+
+
     <h4>Outros métodos</h4>
     <ul>
         <li>vetorNovo = vetor.slice(x,y) - gera uma nova lista da posição x até y-1</li>
         <li>vetor.splice(x,y,z) - iniciando da posição x, excluir y elementos e adicionar o elemento z na posição x (jogando demais elementos para frente)</li>
         <li>vetorNovo = vetor.concat(vetor1) - gera um vetor concatenado de outros dois</li>
+        <li>vetor.includes(x) - verifica se o vetor contém o elemento x</li>
     </ul>
 
 

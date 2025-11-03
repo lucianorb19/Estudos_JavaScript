@@ -89,3 +89,8 @@ for(let pos in matrix){
 
 */
 //---------------------------------------------
+const lista1 = ["Luciano", "Gustavo", "Lucas","Mateus","Gabriela","Amanda"];
+
+for(let elemento of lista1){
+    console.log({elemento});
+}
