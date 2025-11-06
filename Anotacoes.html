@@ -534,13 +534,13 @@ function clicar(){
 
     <h4>Array bidimensional</h4>
     <pre><code>
-const alunos = ['Luciano','Gustavo','Marcelo'];
-const notas = [8, 8.5, 7];
+    const alunos = ['Luciano','Gustavo','Marcelo'];
+    const notas = [8, 8.5, 7];
 
-const lista = [alunos, notas];
+    const lista = [alunos, notas];
 
-console.log(lista[0][1]); //em alunos, quem está na posição 1
-console.log(lista[1][0]); //em notas, elemento de posição 0
+    console.log(lista[0][1]); //em alunos, quem está na posição 1
+    console.log(lista[1][0]); //em notas, elemento de posição 0
     </code></pre>
 
     <h4>Consultar elementos</h4>
@@ -550,7 +550,7 @@ console.log(lista[1][0]); //em notas, elemento de posição 0
     //mostra o segundo elemento do vetor
     </code></pre>
 
-    <p>Percorrer Vetor com For</p>
+    <h4>Percorrer Vetor com For</h4>
     <pre><code>
     let pos_letra
     for(pos_letra=0;pos_letra<=(letras.length)-1;pos_letra++){
@@ -560,19 +560,118 @@ console.log(lista[1][0]); //em notas, elemento de posição 0
 
     <p>Ou, usando as versões simplificadas</p>
 
-    <p>Acessando os índices</p>
+    <h4>Acessando os índices</h4>
     <pre><code>
     for(let pos <strong>in</strong> letras){
         console.log(`Posição ${pos} - valor ${letras[pos]}`)
     }
     </code></pre>
 
-    <p>Acessando os elementos</p>
+    <h4>Acessando os elementos</h4>
     <pre><code>
     for(let elemento <strong>of</strong> letras){
         console.log(`${elemento}`)
     }
     </code></pre>
+
+    <h4>Acessando com <strong>forEach</strong></h4>
+    <p>forEach é um método aplicável a arrays, sem retorno, que executar o que estiver definido nos seus parâmetos, para cada elemento do array que o utiliza.</p>
+
+    <pre><code>
+    let soma = 0;
+    function somaNotas(nota){
+        soma += nota;
+    }
+
+    notas = [9,7,8,7];
+
+    notas.forEach(somaNotas);
+    //PARA CADA ELEMENTO DE notas, EXECUTAR A FUNÇÃO somaNotas
+
+    let media = soma / notas.length;
+    console.log(`Média de notas: ${media}`);
+
+    //VERSÃO 'SIMPLIFICADA'
+    const notas = [9,7,8,7];
+    let soma1 = 0;
+
+    notas.forEach(function(nota){
+        soma1 += nota;
+    })
+
+    let media1 = soma1 / notas.length;
+    console.log(`Média de notas: ${media1}`);
+    </code></pre>
+
+    <p>Nesse caso, a função 'somaNotas(nota)' ou simplesmente 'function(nota)' é chamada de <strong>função callback</strong>, dado que ela é usada como parâmetro para outra função.</p>
+
+    <h4>Map</h4>
+    <p>map é um método para iteráveis que realiza uma operação para cada elemento de um iterável. Bastante similiar ao forEach, porém, com retorno.</p>
+    <pre><code>
+    //SOMAR UM PONTO EXTRA PARA TODAS AS NOTAS DO VETOR
+    const notas = [10, 5, 8, 7];
+
+    const notasAtualizadas = notas.map(function (nota){
+        return nota+1 > 10 ? 10 : nota + 1;
+    });
+
+    console.log(notasAtualizadas);
+    */
+
+    //VERSÃO COM ARROW FUNCTION
+    const notas = [10, 5, 8, 7];
+    const notasAtualizadas = notas.map((nota) => nota+1 > 10 ? 10 : nota + 1);
+    console.log(notasAtualizadas);
+    </code></pre>
+
+    <h4>Filter</h4>
+    <p>Utilizado para filtrar elementos de um array, dada uma condição.</p>
+    <pre><code>
+    const alunos = ["Ana","Marcos","Maria","Mauro"];
+    const medias = [7, 4.5, 8, 7.5];
+
+    //FILTRAR OS ALUNOS COM NOME MENOR QUE 4 CARACTÉRES
+    const nomesMenoresQueQuatro = alunos.filter((aluno) =>{
+        return aluno.length < 4;
+    });
+    console.log(nomesMenoresQueQuatro);
+
+    //FILTRAR ALUNOS CUJA MÉDIA É MENOR QUE 7
+    //(CONSIDERANDO NOMES COM NOTAS RESPECTIVAS EM medias)
+    const reprovados = alunos.filter((aluno, indice)=>{
+        return medias[indice] < 7;
+    });
+    console.log(reprovados);
+
+    
+    //COMO NO ÚLTIMO EXEMPLO, O PARÂMETRO ALUNO NÃO FOI USADO, PODE SER OMITIDO
+    const reprovados1 = alunos.filter((_, indice)=>{
+        return medias[indice] < 7;
+    });
+    console.log(reprovados1);
+    </code></pre>
+
+    <h4>Reduce</h4>
+    <p>Usado para produzir um único valor, considerando um vetor inteiro. Exemplo, calcular a média de um conjunto de notas.</p>
+
+    <pre><code>
+    const salaPython = [7, 7.5, 8.5, 9, 6.5];
+
+    function calculaMedia (listaDeNotas){
+        const somaDasNotas = listaDeNotas.reduce((acumulador, nota)=> {
+            return acumulador + nota;
+        }, 0);//0 É O VALOR INICIAL PARA O ACUMULADOR
+
+        //VERSÃO REDUZIDA
+        //const somaDasNotas = listaDeNotas.reduce((acumulador, nota)=> acumulador+nota,0);
+
+        const media = somaDasNotas / listaDeNotas.length;
+        return media;
+    }
+
+    console.log(calculaMedia(salaPython));
+    </code></pre>
+
 
     <p>Consultar o índice pelo valor</p>
     <pre><code>
@@ -617,6 +716,32 @@ console.log(lista[1][0]); //em notas, elemento de posição 0
     const [listaNova1, listaNova2] = listaNomes;
     //listaNova1 = ["Luciano", "Gustavo", "Lucas"];
     //listaNova2 = ["Mateus","Gabriela","Amanda"];
+    </code></pre>
+
+    <h4>Cópia de array</h4>
+    <p>A cópia de array pode ser feita com o <em>spread operator</em>.</p>
+
+    <pre><code>
+    const notas = [7, 6.5, 8, 8.5];
+    const copiaNotas = [...notas];//SPREAD OPERATOR
+    copiaNotas.push(7);
+
+    console.log(notas);
+    console.log(copiaNotas);
+    </code></pre>
+
+    <h4>Eliminar duplicatas com <em>Set</em> e <em>Spread Operator</em></h4>
+    <p>Para eliminar duplicatas de um array, é preciso transformá-lo num Set (conjunto do JS de elementos únicos) e transformá-lo num array novamente com Spread Operator.</p>
+
+    <pre><code>
+    const nomes = ["Luciano","Gustavo","Luciano","Ana","Gustavo"];
+    //const nomesSemDuplicatasSet = new Set(nomes);
+    //const nomesSemDuplicatasArray = [...nomesSemDuplicatasSet];
+
+    //VERSÃO REDUZIDA
+    const nomesSemDuplicatasArray = [...(new Set(nomes))];
+
+    console.log(nomesSemDuplicatasArray);
     </code></pre>
 
 

@@ -86,4 +86,28 @@ const numbers = [2,5,50,2,1,0];
 console.log(mediaDoArray(numbers));
 //---------------------------------------------------------------
 
+
+//SOMAR UM PONTO EXTRA PARA TODAS AS NOTAS DO VETOR
+const notas = [10, 5, 8, 7];
+
+const notasAtualizadas = notas.map(function (nota){
+    return nota+1 > 10 ? 10 : nota + 1;
+});
+
+console.log(notasAtualizadas);
+
+
+//VERSÃO COM ARROW FUNCTION
+const notas = [10, 5, 8, 7];
+const notasAtualizadas = notas.map((nota) => nota+1 > 10 ? 10 : nota + 1);
+console.log(notasAtualizadas);
 */
+//---------------------------------------------------------------
+
+const arrayNums = [1, 2, 3, 4]
+
+const arrayNovo = arrayNums.map((numero)=> numero*10);
+
+console.log(arrayNovo);
+
+
