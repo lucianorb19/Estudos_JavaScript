@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+
+    <title>Objetos</title>
+</head>
+<body>
+    <h1>Objetos</h1>
+    <p>Estruturas composta por propriedades (chaves e valores) e métodos.</p>
+    <ul>
+        <li>Delimitada por {}</li>
+        <li>Cada propriedade é uma chave associada a um valor</li>
+    </ul>
+
+    <pre><code>
+    const estudante = {
+    nome: "Luciano",
+    idade: 28,
+    cpf: "12267943829",
+    sexo: "M"
+    };
+    </code></pre>
+
+    <p>Criação de um objeto vazio</p>
+    <pre><code>
+    const estudante2 = {};
+    </code></pre>
+
+    <h2>Acessando propriedades de um objeto</h2>
+    <p>Utiliza-se a notação de ponto</p>
+    <pre><code>
+    console.log(estudante.nome);//Luciano
+    </code></pre>
+
+    <h3>Acesso a propriedades pela chave</h3>
+    <p>Para situações nas quais é necessário acessar um campo específico de um objeto, a referência a esse campo é feito pela utilização da notação de conchetes [], com o nome da chave dentro.</p>
+
+    <p>Exemplo: acessar o campo 'nome' de um objeto estudante</p>
+    <pre><code>
+    console.log(estudante["nome"]); //Luciano
+    </code></pre>
+
+    <p>Importante destacar que, <strong>ao tentar acessar uma propriedade que não existe, o resultado é <em>undefined</em> ao invés de erro</strong>.</p>
+    <pre><code>
+        console.log(estudante.cidade); //undefined
+    </code></pre>
+
+    <h2>Mudando dados do objeto / Criando novos campos</h2>
+    <p>Para mudar o valor de uma propriedade</p>
+    <pre><code>
+    estudante.nome = "Ana";
+    </code></pre>
+
+    <p>Para criar uma nova propriedade, da mesma forma</p>
+    <pre><code>
+    estudante.nascimento = "19/03/2007";
+    </code></pre>
+
+    <h2>Deleção de propriedades</h2>
+    <p>Usando <em>delete</em>.</p>
+
+    <p>Com notação de ponto</p>
+    <pre><code>
+    delete estudante.nome;
+    </code></pre>
+
+    <p>Com notação de colchetes</p>
+    <pre><code>
+    delete estudante["idade"];
+    </code></pre>
+
+    <p>Destacando que delete tem sempre retorno true ou false, caso consiga ou não efetuar a deleção, porém <strong>o retorno é true mesmo ao tentar deletar uma propriedade inexistente</strong>.</p>
+
+    <h2>Cópia de objeto</h2>
+    <p>Considerando que, assim como em arrays, não podemos simplesmente atribuir um objeto existente para um novo (dado que isso somente criaria dois objetos diferentes apontando para a mesma posição de memória), como copiar objetos? <strong>Utilizando Object.create()</strong></p>
+
+    <pre><code>
+    const objPersonagem = {
+    nome: "Gandalf",
+    classe: "mago",
+    nivel: "20"
+    }
+    
+    const objPersonagem2 = Object.create(objPersonagem)
+    objPersonagem2.nome = "Saruman"
+    
+    console.log(objPersonagem.nome) //Gandalf
+    console.log(objPersonagem2.nome) //Saruman
+    </code></pre>
+
+    <h2>Métodos</h2>
+    <p>São funções próprias do objeto.</p>
+
+    <pre><code>
+    const estudante = {
+        //PROPRIEDADES
+        nome: "Luciano R B",
+        idade: 28,
+        telefone: "33991465987",
+        mediaDeNotas: 7.8,
+        
+        //MÉTODOS
+        estaAprovado: function(mediaBase){
+            return this.mediaDeNotas >= 7 ? true : false;
+        }
+    }
+
+    console.log(estudante.estaAprovado(7));//true
+    </code></pre>
+
+    <p>O <strong>this</strong> é uma referência ao próprio objeto. <br>
+       <strong>Não usar this em arrow functions</strong>, o JS tem problemas de contexto nesta questão específica.</p>
+    
+    
+</body>
+</html>
