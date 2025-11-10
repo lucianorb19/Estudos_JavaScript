@@ -91,6 +91,52 @@
     console.log(objPersonagem2.nome) //Saruman
     </code></pre>
 
+    <h2>Percorrer um Objeto</h2>
+    <p>o laço <strong>for...in</strong> nos permite percorrer os campos de um objeto, lendo suas chaves e valores, <strong>exceto para campos complexos como objetos e funções</strong>.</p>
+    <pre><code>
+    const pessoa = {
+        //PROPRIEDADES
+        nome: "Luciano Rodrigues Batista",
+        idade: 28,
+        solteiro: true,
+        hobbies: ["filmes", "academia", "álcool"],
+        endereco: {
+            rua: "Rua das Mercês",
+            cidade: "Diamantina",
+            estado: "MG - Minas Gerais"    
+        },
+        
+        //MÉTODOS
+        seApresentar: function(){
+            console.log(`Olá, meu nome é ${this.nome}, tenho ${this.idade} e moro na ${this.endereco.rua} em ${this.endereco.cidade}!`);
+        }
+     };
+
+        for(let chave in pessoa){
+            console.log(`${chave} - ${pessoa[chave]}`);
+        }
+
+    //SAÍDA
+    nome - Luciano Rodrigues Batista
+    idade - 28
+    solteiro - true
+    hobbies - filmes,academia,álcool
+    endereco - [object Object]
+    seApresentar - function(){
+        console.log(`Olá, meu nome é ${this.nome}, tenho ${this.idade} e moro na ${this.endereco.rua} em ${this.endereco.cidade}!`);
+    }
+    </code></pre>
+
+    <p>O que seria útil nesse caso, seria um laço for com verificação para mostrar apenas os campos apresentáveis do objeto, ou seja, somente aqueles que não são do tipo objeto e função.</p>
+    <pre><code>
+    for(let chave in pessoa){
+        const tipo = typeof pessoa[chave];
+        if(tipo !== 'object' && tipo !== 'function'){
+            console.log(`${chave} - ${pessoa[chave]}`)
+        }
+    }
+    </code></pre>
+
     <h2>Métodos</h2>
     <p>São funções próprias do objeto.</p>
 

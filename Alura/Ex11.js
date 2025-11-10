@@ -137,7 +137,114 @@ a) Chame cada função dentro do objeto calculadora passando valores como argume
 b) Adicione um novo método chamado calcularMedia ao objeto calculadora. Esta função deve aceitar um array de números como parâmetro e retornar a média aritmética dos valores.
 
 c) Chame a função calcularMedia passando um array de números e imprima no console o resultado obtido.
+
+
+const calculadora = {
+    //PROPRIEDADES
+    //MÉTODOS
+    soma: (num1,num2) => num1+num2,
+    subtracao: (num1,num2) => num1-num2,
+    multiplicacao: (num1,num2) => num1*num2,
+    
+    divisao: function(num1,num2){
+        if(num2 === 0){
+            return "Divisor não pode ser zero!"
+        }else{
+            return num1/num2;
+        }
+    },
+
+    calcularMedia: function(array){
+        const somaTotal = array.reduce((acumulador, valorAtual)=> acumulador+valorAtual,0);
+        return somaTotal / array.length; 
+    }
+
+}
+
+
+console.log(calculadora.divisao(2,0));
+const lista = [50,50,100,0];
+console.log(calculadora.calcularMedia(lista));
+//-------------------------------------
+
+5 - Crie um objeto chamado contaBancaria com as seguintes propriedades:
+
+titular: uma string representando o titular da conta.
+saldo: um número representando o saldo da conta.
+depositar: uma função que aceita um valor como parâmetro e adiciona esse valor ao saldo da conta. Utilize this para acessar a propriedade saldo.
+sacar: uma função que aceita um valor como parâmetro e subtrai esse valor do saldo da conta. Utilize this para acessar a propriedade saldo. Certifique-se de verificar se há saldo suficiente antes de efetuar o saque.
+Crie um objeto chamado cliente que representa um cliente com uma conta bancária. O objeto deve ter as seguintes propriedades:
+
+nome: uma string representando o nome do cliente.
+conta: uma referência à conta bancária associada a esse cliente (objeto criado anteriormente).
+Crie uma função chamada mostrarSaldo que aceita o objeto cliente como parâmetro e imprime no console o nome do cliente e o saldo da sua conta utilizando this para acessar as propriedades do objeto.
+
+Realize operações de depósito e saque na conta bancária do cliente usando as funções do objeto contaBancaria e, em seguida, chame a função para exibir as informações atualizadas no console.
+
+
+const contaBancaria1 = {
+    
+    //PROPRIEDADES
+    titular: "Luciano Rodrigues Batista",
+    saldo: 3550,
+
+    //MÉTODOS
+    depositar: function(valor){
+        console.log(`Efetuando depósito de R$ ${valor.toFixed(2)}`);
+        this.saldo+=valor;
+        console.log(`Saldo atualizado: R$ ${this.saldo.toFixed(2)}\n`);
+    },
+
+    sacar: function(valor){
+        if (valor > this.saldo){
+            console.log(`Saldo insuficiente!\n
+                Saldo: R$ ${this.saldo.toFixed(2)}\n
+                Tentativa de saque: R$ ${valor.toFixed(2)}\n`);
+        }else{
+            console.log(`Efetuando saque!`);
+            this.saldo -= valor;
+            console.log(`Saque de ${valor} efetuado!\nSaldo atualizado: R$ ${this.saldo.toFixed(2)}\n`)
+        }
+    }
+}
+
+const cliente1 = {
+    nome: "Luciano Rodrigues Batista",
+    conta: contaBancaria1
+}
+
+function mostrarSaldo(cliente){
+    console.log(`Cliente: ${cliente.nome}\nSaldo: ${cliente.conta.saldo}\n`);
+}
+
+mostrarSaldo(cliente1);
+cliente1.conta.depositar(200);
+cliente1.conta.sacar(600.25);
+mostrarSaldo(cliente1)
+//-------------------------------------
 */
 
-//-------------------------------------
-//-------------------------------------
+const pessoa = {
+    //PROPRIEDADES
+    nome: "Luciano Rodrigues Batista",
+    idade: 28,
+    solteiro: true,
+    hobbies: ["filmes", "academia", "álcool"],
+    endereco: {
+        rua: "Rua das Mercês",
+        cidade: "Diamantina",
+        estado: "MG - Minas Gerais"    
+    },
+
+    //MÉTODOS
+    seApresentar: function(){
+        console.log(`Olá, meu nome é ${this.nome}, tenho ${this.idade} e moro na ${this.endereco.rua} em ${this.endereco.cidade}!`);
+    }
+};
+
+for(let chave in pessoa){
+    const tipo = typeof pessoa[chave];
+    if(tipo !== 'object' && tipo !== 'function'){
+        console.log(`${chave} - ${pessoa[chave]}`)
+    }
+}
