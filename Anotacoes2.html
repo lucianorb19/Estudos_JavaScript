@@ -48,6 +48,25 @@
         console.log(estudante.cidade); //undefined
     </code></pre>
 
+    <h3>Propriedades enumeráveis ou não</h3>
+    <p>Propriedades enumeráveis são aquelas que são consideradas durante operações de iteração, como for … in e métodos como Object.keys(). Por padrão, todas as propriedades criadas diretamente em um objeto são enumeráveis, o que significa que elas são visíveis durante a iteração.</p>
+
+    <p>Propriedades <strong>não enumeráveis</strong> são geralmente associadas a métodos internos de objetos ou configurações específicas que não precisam ser expostas durante iterações comuns.</p>
+
+    <p>Para manipular a enumerabilidade de uma propriedade, usa-se o método <strong>Object.defineProperty()</strong>.</p>
+    <pre><code>
+    const pessoa = {
+    nome: "Luciano Rodrigues Batista"
+    };
+
+    Object.defineProperty(pessoa, 'idade', {
+    value: 28,
+    enumerable: false
+    });
+
+    console.log(Object.keys(pessoa)); // Saída: ['nome']
+    </code></pre>
+
     <h2>Mudando dados do objeto / Criando novos campos</h2>
     <p>Para mudar o valor de uma propriedade</p>
     <pre><code>
@@ -58,6 +77,7 @@
     <pre><code>
     estudante.nascimento = "19/03/2007";
     </code></pre>
+
 
     <h2>Deleção de propriedades</h2>
     <p>Usando <em>delete</em>.</p>
@@ -91,7 +111,63 @@
     console.log(objPersonagem2.nome) //Saruman
     </code></pre>
 
+
+    <h2>Atribuição entre Objetos</h2>
+    <p>Pode ser feita, como no exemplo acima, por cópia através do método Object.create, mas também pela atribuição direta ou uso do <em>spread operator</em>.</p>
+
+    <h3>Atribuição direta</h3>
+    <pre><code>
+    const fichaGuerreiro = {
+    nome: "Aragorn",
+    classe: "guerreiro"
+    }
+    
+    const equipoGuerreiro = {
+    espada: "Andúril",
+    capa: "capa élfica +2"
+    }
+
+    const guerreiro = { fichaGuerreiro, equipoGuerreiro }
+    console.log(guerreiro)
+
+    //SAÍDA
+    {
+    fichaGuerreiro: { nome: 'Aragorn', classe: 'guerreiro' },
+    equipoGuerreiro: { espada: 'Andúril', capa: 'capa élfica +2' }
+    }
+    </code></pre>
+
+    <p>A atribuição direta funciona, mas ela cria dentro do objeto atribuído outros objetos. Se a intenção for copiar apenas os campos, nesse caso usa-se o <em>spread operator</em>.</p>
+
+    <h3>Atribuição com Spread Operator</h3>
+    <pre><code>
+    const fichaGuerreiro = {
+    nome: "Aragorn",
+    classe: "guerreiro"
+    }
+    
+    const equipoGuerreiro = {
+    espada: "Andúril",
+    capa: "capa élfica +2"
+    }
+
+    const guerreiro = { ...fichaGuerreiro, ...equipoGuerreiro }
+    console.log(guerreiro)
+
+    //SAÍDA
+    {
+    nome: 'Aragorn',
+    classe: 'guerreiro',
+    espada: 'Andúril',
+    capa: 'capa élfica +2'
+    }
+    </code></pre>
+
+    <p>Se atentar para o fato de, <strong>ao usar o spread operator, ele sobrescreve propriedades de mesmo nome que estão sendo copiadas.</strong></p>
+
+
     <h2>Percorrer um Objeto</h2>
+    <h3>Com laço for..in</h3>
     <p>o laço <strong>for...in</strong> nos permite percorrer os campos de um objeto, lendo suas chaves e valores, <strong>exceto para campos complexos como objetos e funções</strong>.</p>
     <pre><code>
     const pessoa = {
@@ -137,6 +213,42 @@
     }
     </code></pre>
 
+    <h3>Com funções Object - keys, values, entries</h3>
+    <h4>Object.keys e Object.values</h4>
+    <p>são usados para extrair informações específicas de um objeto. Esses métodos fornecem, respectivamente, as chaves e os valores presentes em um objeto. São úteis para iterar ou fazer operações específicas em conjuntos de dados de um objeto.</p>
+    <pre><code>
+    const meuObjeto = { a: 1, b: 2, c: 3 };
+    const chaves = Object.keys(meuObjeto);
+    const valores = Object.values(meuObjeto);
+
+    console.log(chaves); // Saída: ['a', 'b', 'c']
+    console.log(valores); // Saída: [1, 2, 3]
+    </code></pre>
+
+    <h4>Object.entries</h4>
+    <p>este método retorna um array de arrays que representam pares chave-valor. É útil em situações que demandam iterações mais complexas ou manipulação mais minuciosa dos dados.</p>
+    <pre><code>
+    const meuObjeto = { a: 1, b: 2, c: 3 };
+    const entradas = Object.entries(meuObjeto);
+
+    console.log(entradas);
+    // Saída: [['a', 1], ['b', 2], ['c', 3]]
+    </code></pre>
+
+    <h4>Object.assing</h4>
+    <p>usado para fusão e cópia de objetos. Este método permite combinar propriedades de diferentes objetos em um único objeto.</p>
+    <pre><code>
+    const objetoOriginal = { a: 1, b: 2 };
+    const objetoParaCopiar = { b: 3, c: 4 };
+
+    const objetoFusionado = Object.assign({}, objetoOriginal, objetoParaCopiar);
+
+    console.log(objetoFusionado);
+    // Saída: { a: 1, b: 3, c: 4 }
+    </code></pre>
+
+
+
     <h2>Métodos</h2>
     <p>São funções próprias do objeto.</p>
 
@@ -159,6 +271,28 @@
 
     <p>O <strong>this</strong> é uma referência ao próprio objeto. <br>
        <strong>Não usar this em arrow functions</strong>, o JS tem problemas de contexto nesta questão específica.</p>
+
+    <h2>Operações com JSON</h2>
+    
+    <h3>Json para Objeto</h3>
+    <p>A leitura de um arquivo .json para uma variável pode ser feita pela função <u>require</u>, nativa do Node.js, que aceita como parâmetro o caminho do arquivo e o converte para um objeto. Considerando um arquivo estudante.json na mesma pasta deste arquivo atual, teríamos:</p>
+    <pre><code>
+    const estudante = require('./estudante.json');
+    </code></pre>
+
+    <h3>Objeto para String</h3>
+    <p>Conversão de objetos para strings é vantajosa para que as informações, em formato string, sejam enviadas entre o back-end e front-end.Isso pode ser feito pela função <u>JSON.stringfy()</u>.</p>
+    <pre><code>
+    const stringEstudante = JSON.stringify(estudante);
+    </code></pre>
+
+    <h3>String para Objeto</h3>
+    <p><u>Função JSON.parse()</u></p>
+    <pre><code>
+    const objEstudante = JSON.parse(stringEstudante);
+    </code></pre>
+
+
     
     
 </body>
