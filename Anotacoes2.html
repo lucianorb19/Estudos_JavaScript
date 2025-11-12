@@ -48,6 +48,19 @@
         console.log(estudante.cidade); //undefined
     </code></pre>
 
+    <h3>Verificar se um objeto tem um propriedade</h3>
+    <p>Para verificar se um dado objeto tem um propriedade específica (desconsiderando as herdadas), usa-se a função <strong>hasOwnProperty()</strong></p>
+    <pre><code>
+    const estudante = {
+    nome: "Luciano",
+    idade: 28,
+    sexo: "Masculino"
+    };
+
+    console.log(estudante.hasOwnProperty("nome"));//TRUE
+    console.log(estudante.hasOwnProperty("endereco"));//FALSE
+    </code></pre>
+
     <h3>Propriedades enumeráveis ou não</h3>
     <p>Propriedades enumeráveis são aquelas que são consideradas durante operações de iteração, como for … in e métodos como Object.keys(). Por padrão, todas as propriedades criadas diretamente em um objeto são enumeráveis, o que significa que elas são visíveis durante a iteração.</p>
 
@@ -65,6 +78,12 @@
     });
 
     console.log(Object.keys(pessoa)); // Saída: ['nome']
+    </code></pre>
+
+    <p>Importante destacar que, ser não enumerável só oculta a propriedade para casos de iteração. Isso significa que o acesso direto à propriedade ainda pode ser feito.</p>
+
+    <pre><code>
+    console.log(pessoa.idade); //SAÍDA 28
     </code></pre>
 
     <h2>Mudando dados do objeto / Criando novos campos</h2>
@@ -95,6 +114,8 @@
     <p>Destacando que delete tem sempre retorno true ou false, caso consiga ou não efetuar a deleção, porém <strong>o retorno é true mesmo ao tentar deletar uma propriedade inexistente</strong>.</p>
 
     <h2>Cópia de objeto</h2>
+    
+    <h3>Cópia com Object.create()</h3>
     <p>Considerando que, assim como em arrays, não podemos simplesmente atribuir um objeto existente para um novo (dado que isso somente criaria dois objetos diferentes apontando para a mesma posição de memória), como copiar objetos? <strong>Utilizando Object.create()</strong></p>
 
     <pre><code>
@@ -109,6 +130,16 @@
     
     console.log(objPersonagem.nome) //Gandalf
     console.log(objPersonagem2.nome) //Saruman
+    </code></pre>
+
+    <h3>Cópia com JSON.parse e JSON.stringify</h3>
+    <p>A cópia de um objeto JS também pode ser feita usando as funções JSON.stringify, que transformam o objeto em string, e JSON.parse, que tornam a string novamente em objeto.</p>
+    <pre><code>
+    const objetoOriginal = { chave: 'valor' };
+    const copiaProfunda = JSON.parse(JSON.stringify(objetoOriginal));
+
+    copiaProfunda.chave = 'novoValor';
+    console.log(objetoOriginal.chave); // Saída: valor
     </code></pre>
 
 

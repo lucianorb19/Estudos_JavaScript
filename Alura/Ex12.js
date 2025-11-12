@@ -193,17 +193,3 @@ for(let chave in carroComNovosDetalhes){
 //-------------------------------------------------
 */
 
-const estudante = require('./estudante.json');
-
-console.log("Objeto\n", estudante);
-console.log();
-
-const stringEstudante = JSON.stringify(estudante);
-
-console.log("String\n", stringEstudante);
-console.log();
-
-const objEstudante = JSON.parse(stringEstudante);
-
-console.log("Objeto novamente\n", objEstudante);
-console.log();
