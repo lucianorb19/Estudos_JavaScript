@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+    <title>...</title>
+</head>
+<body>
+    <h1>Ler argumentos do terminal</h1>
+    <p>Quando for necessário usar arugmentos de entrada vindos do terminal, usar a função process.argv. Julgando que é escrito no terminal <em>node index.js teste</em>, a saída process.argv[2] será 'teste'</p>
+    <ul>
+        <li>process.arvg[0] - caminho para o binário do nodeJS;</li>
+        <li>process.arvg[1] - caminho do arquivo js sendo executado, nesse caso 'index.js'</li>
+    </ul>
+    <pre><code>
+    const caminhoArquivo = process.argv[2];//PEGA O QUE FOR DIGITADO NO TERMINAL APÓS 'node indes.js'
+    console.log(caminhoArquivo);
+    </code></pre>
+
+    <h1>Operações com arquivos</h1>
+    <h2>Leitura</h2>
+    <p>Pode ser feita pela função <u>readFile</u>.</p>
+    <pre><code>
+    const fs = require('fs');//USO DE FILESYSTEM
+
+    const caminhoArquivo = process.argv[2];//PEGA O QUE FOR DIGITADO NO TERMINAL APÓS 'node indes.js'
+    console.log(caminhoArquivo);
+
+    fs.readFile(caminhoArquivo, 'utf-8', (erro, texto)=>{
+        if(erro){
+            console.error("Erro:",erro);
+            return;
+        }
+        console.log(texto);
+    });
+    </code></pre>
+
+    <p>E o seguinte comando no terminal: <strong><em>node index.js ../arquivos/texto-web</em></strong></p>
+
+    
+</body>
+</html>
