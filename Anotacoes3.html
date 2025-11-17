@@ -38,6 +38,94 @@
 
     <p>E o seguinte comando no terminal: <strong><em>node index.js ../arquivos/texto-web</em></strong></p>
 
+    <h2>Escrita</h2>
+    <p>Com uso da função <u>fs.promisses.writeFile(caminho, conteudo)</u>, sendo o primeiro parâmetro o caminho onde o arquivo será salvo, incluindo sua extensão, e o segundo uma string com seu conteúdo.</p>
+    <pre><code>
+    await fs.promises.writeFile(caminho, conteudo);
+    </code></pre>
+
+    <h1>Importação e Exportação de Módulos</h1>
+    <p>Modularizar funcionalidades é algo comum em projetos nodeJS. Essa modularização pode ser feita da seguinte forma:</p>
+
+    <ul>
+        <li><strong>Exportação</strong> com <u>module.exports = nomeFuncao</u> no arquivo origial e <strong>importação</strong> <u>const nomeVariavel = require('caminhoArquivoOriginal')</u> no arquivo de destino.</li>
+    </ul>
+
+    <p>Outra maneira seria:</p>
+    <ul>
+        <li>Exportação com a palavra <u>export default</u> na única função que se deseja exportar, e no arquivo onde vai ser recebido o módulo usar <u>import nomeFuncao from 'caminhoArquivo'</u></li>
+    </ul>
+    
+    <p>Outra maneira seria:</p>
+    <ul>
+        <li>Configurar o arquivo package.json da raiz do arquivo;
+            <ul>
+                 <li>Abrir o terminal na raiz do projeto e utilizar o comando <u>npm ini -y</u> para criar o package.json</li>
+                <li>Acessar o arquivo e inserir em qualquer posião, o campo <u>"type":"module",</u></li>
+            </ul>
+           
+        </li>
+        <li>Exportação com a palavra <u>export</u> antes de cada função que se deseja exportar, e no arquivo onde vai ser recebido o módulo usar <u>import{nomeFuncao} from 'caminhoArquivo'</u></li>
+    </ul>
+
+    <p>Outra maneira seria</p>
+    <ul>
+        <li>Configurar o arquivo package.json da raiz do arquivo;
+            <ul>
+                 <li>Abrir o terminal na raiz do projeto e utilizar o comando <u>npm ini -y</u> para criar o package.json</li>
+                <li>Acessar o arquivo e inserir em qualquer posião, o campo <u>"type":"module",</u></li>
+            </ul>
+           
+        </li>
+        <li>Exportação com a palavra <u>export { nomeFuncao1, nomeFuncao2 }</u> no final do arquivo, e onde vai ser recebido o módulo usar <u>import{nomeFuncao} from 'caminhoArquivo'</u></li>
+    </ul>
+
+    <h1>Operações Assíncronas - async e await, then e promessas</h1>
+
+    <p>Operações assíncronas são aquelas que não exigem que o código seja  pausado até que sua tarefa seja executada, continuando com sua execução (em partes) até que sua resposta seja gerada e utilizada no código principal. Exemplos típicos de operações assíncronas são conexão com base de dados e operações com arquivos.</p>
+
+    <p>Aqui um exemplo de uma operação assíncrona realizada  para escrita de arquivo no disco</p>
+    <pre><code>
+    async function criaESalvaArquivo(listaPalavras, endereco){
+        const arquivoNovo = `${endereco}/resultado.txt`;
+        const textoPalavras = JSON.stringify(listaPalavras);
+        try{
+        await fs.promises.writeFile(arquivoNovo, textoPalavras);
+            console.log("Arquivo criado!");
+        }catch(erro){
+            throw erro;
+        }
+    }
+    </code></pre>
+
+    <p><u>Promessa</u> é um tipo de objeto JS criado para lidar com operações assíncronas, ele representa o resultado dessas operações. Seus estados são:</p>
+    <ul>
+        <li>Pending - pendente(em processamento);</li>
+        <li>Settled - resolvida (já processada)</li>
+        <li>Fulfilled - cumprida;</li>
+        <li>Rejected - rejeitada (erros).</li>
+    </ul>
+
+    <p>O <u>then</u> é um método utilizada para uma construção alterativa de uma função assíncrona, que lida com o resultado dessa função. Nele é escrito o que se espera fazer com o resultado de uma função assíncrona. Abaixo, a mesma construção da função acima, mas usando then:</p>
+    <pre><code>
+    function criaESalvaArquivo(listaPalavras, endereco){
+        const arquivoNovo = `${endereco}/resultado.txt`;
+        const textoPalavras = JSON.stringify(listaPalavras);
+        fs.promises.writeFile(arquivoNovo, textoPalavras)
+        .then(()=>{//SEM PARÂMETRO PQ writeFile NÃO GERA RETORNO
+            console.log("Arquivo criado!");
+        })
+        .catch((erro)=>{
+            throw erro;
+        })
+        .finally(()=>{//É EXECUTADO DE QUALQUER FORMA
+            console.log("Operação finalizada!")
+        })
+    }
+    </code></pre>
+
+    
+
     
 </body>
 </html>
