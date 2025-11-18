@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Ler argumentos do terminal</h1>
-    <p>Quando for necessário usar arugmentos de entrada vindos do terminal, usar a função process.argv. Julgando que é escrito no terminal <em>node index.js teste</em>, a saída process.argv[2] será 'teste'</p>
+    <p>Quando for necessário usar argumentos de entrada vindos do terminal, usar a função process.argv. Julgando que é escrito no terminal <em>node index.js teste</em>, a saída process.argv[2] será 'teste'</p>
     <ul>
         <li>process.arvg[0] - caminho para o binário do nodeJS;</li>
         <li>process.arvg[1] - caminho do arquivo js sendo executado, nesse caso 'index.js'</li>
@@ -17,6 +17,83 @@
     const caminhoArquivo = process.argv[2];//PEGA O QUE FOR DIGITADO NO TERMINAL APÓS 'node indes.js'
     console.log(caminhoArquivo);
     </code></pre>
+
+    <h2>Biblioteca commander - argumentos no terminal</h2>
+    <p>Com o uso da função process.argv, o uso de argumentos no terminal fica limitado a ordem em que são escritos. Por exemplo, um programa, pela execução de um arquivo cls.js, faz a leitura de um arquivo de texto e gera outro arquivo de texto com as palavras repeditas de cada parágrado. Interpretando a situação, observamos que serão necessários 2 argumentos:</p>
+    <ul>
+        <li>O caminho do arquivo a ser lido;</li>
+        <li>O caminho onde salvar o arquivo com o resultado.</li>
+    </ul>
+
+    <p>Fazendo isso pelo uso da função process.argv, teríamos:</p>
+    <pre><code>
+    node cli.js ./arquivos/arquivoOrigem.txt ./resultados/resultado.txt
+    </code></pre>
+
+    <p>Mas e se não quisermos depender dessa ordem de argumentos? o que fazer? <br>
+       Nesse caso poderíamos usar a famosa biblioteca <u>commander, ela permite que possamos definir qual argumento da linha de comando representará qual variável no programa</u>.</p>
+
+    <h3>Instalação</h3>
+    <pre><code>
+    npm install commander
+    </code></pre>
+
+    <h3>Aplicação no código</h3>
+    <p>Considerando um arquivo JS que faz o uso de dois argumentos: uma string caminho do arquivo de origem, e uma string caminho do arquivo de destino, podemos ter o seguinte:</p>
+    <pre><code>
+    //VERSÃO COM USO DA BIBLIOTECA COMMANDER
+    /*
+    //FUNÇÃO QUE FAZ USO DAS VARIÁVEIS texto E destino GERADAS COM USO
+    //DA BIBLIOTECA Commander
+    function processaArquivo(texto, destino){
+    fs.readFile(texto, 'utf-8', (erro, texto) => {
+    try {
+        if (erro) throw erro
+        const resultado = contaPalavras(texto);
+        criaESalvaArquivo(resultado, destino);
+    } catch(erro) {
+        trataErros(erro);
+    }
+    });
+    }
+
+    //OBJETO COMMAND
+    const program = new Command();
+    program
+    .version('0.0.1')
+    .option('-t, --texto <string>', 'caminho do texto a ser processado')
+    .option('-d  --destino <string>', 'caminho da pasta a salvar o arquivo de resultados')
+    .action((options)=> {
+    const {texto, destino} = options; //DESESTRUTURAÇÃO DE ARRAY
+
+    if(!texto || !destino){
+        console.error("Erro: favor inserir caminho de origem e destino!")
+        program.help();
+        return;
+    }
+
+    //USO BIBLIOTECA PATH PARA MONTRAR CAMINHO DOS ARQUIVOS
+    caminhoTexto = path.resolve(texto);
+    caminhoDestino = path.resolve(destino);
+    
+    //APLICAÇÃO DA FUNÇÃO processaArquivo
+    try{
+        processaArquivo(caminhoTexto, caminhoDestino);
+        console.log("Texto processado com sucesso!");
+    }catch(erro){
+        console.log("Erro no processamento", erro)
+    }
+    })
+
+    program.parse();
+    */
+    </code></pre>
+
+    <p>E na linha de comando, <u>ao invés de depender da orgem dos argumentos, podemos definir, qual será o texto e qual será o destino usando as <strong>flags</strong> -t e -d</u></p>
+    <pre><code>
+    node cli.js -t ./arquivos/arquivoOrigem.txt -d ./resultados/resultado.txt
+    </code></pre>
+
 
     <h1>Operações com arquivos</h1>
     <h2>Leitura</h2>
