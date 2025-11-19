@@ -201,6 +201,17 @@
     }
     </code></pre>
 
+    <h1>Versionamento Semântico</h1>
+    <p>
+        <ul>
+            <li>O primeiro número da sequência (o 20 em 20.11.0) se refere a breaking changes, ou seja, atualizações de versão que têm potencial para “quebrar” códigos que utilizem as versões anteriores. Ou seja, uma aplicação que utiliza códigos (métodos, funções etc.) da versão 18.X.X de determinada lib pode deixar de funcionar com a versão 20.X.X, pois haverá diferenças significativas entre as versões. Estas atualizações são conhecidas como major (ou “maiores”, em tradução livre).</li>
+
+            <li>O número do meio (o 11 em 20.11.0) se refere a novas funcionalidades adicionadas, mas que não causam “quebra” em relação a códigos das versões anteriores. Este tipo de atualização é conhecida como minor (ou “menores”).</li>
+
+            <li>O último número (o 0 em 20.11.0) se refere à correção de código: resolução de bugs, melhoramento de performance ou alterações similares que não alteram as funcionalidades atuais (com exceção da correção de bugs) nem introduzem novas. É conhecida como patch (que pode ser traduzido como “remendo”).</li>
+        </ul>
+    </p>
+
     
 
     
