@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+
+    <title>Orientação a Objeto</title>
+</head>
+<body>
+    <h1>Herança de protótipo</h1>
+    <p>A orientação a objetos do JS funciona baseada no conceito de herança de protótipos. Todos objetos do JS herdam de uma classe base, que aqui recebe o nome de protótipo, sendo que a base para todos os objetos é a classe Object. Logo, numa hierarquia de objetos, a classe que é usada como base é chamada de protótipo.</p>
+
+    <p>Para saber qual é o protótipo (classe mãe/ classe base) de um objeto, <u>pelo console do navegador</u>, podemos usar o comando <em>nomeObjeto.__proto__</em>.</p>
+    <pre><code>
+    let user = {
+    perfil: 'estudante'
+    };
+
+    let estudante1 = {
+    nome: 'juliana'
+    };
+
+    Object.setPrototypeOf(estudante, user);
+    estudante1.__proto__; // SAÍDA {perfil: 'estudante'}
+    </code></pre>
+    
+</body>
+</html>

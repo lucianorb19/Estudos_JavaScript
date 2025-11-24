@@ -216,3 +216,14 @@ const resultado = encontrarFuncionarioPorId(102);
 console.log(resultado);
 //--------------------------------------------------
 */
+
+let user = {
+ perfil: 'estudante'
+};
+
+let estudante1 = {
+ nome: 'juliana'
+};
+
+Object.setPrototypeOf(estudante, user);
+estudante1.__proto__;
