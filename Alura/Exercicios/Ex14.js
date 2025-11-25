@@ -217,13 +217,11 @@ console.log(resultado);
 //--------------------------------------------------
 */
 
-let user = {
- perfil: 'estudante'
-};
 
-let estudante1 = {
- nome: 'juliana'
-};
 
-Object.setPrototypeOf(estudante, user);
-estudante1.__proto__;
+
+// const novoUser = new User("Luciano","luciano@gmail.com","1997-19-03");
+// // console.log(novoUser);
+// // console.log(novoUser.exibirInfos());
+
+// console.log(User.prototype.isPrototypeOf(novoUser));

@@ -9,21 +9,125 @@
 </head>
 <body>
     <h1>Herança de protótipo</h1>
-    <p>A orientação a objetos do JS funciona baseada no conceito de herança de protótipos. Todos objetos do JS herdam de uma classe base, que aqui recebe o nome de protótipo, sendo que a base para todos os objetos é a classe Object. Logo, numa hierarquia de objetos, a classe que é usada como base é chamada de protótipo.</p>
+    <p>Antes de estudarmos a orientação a objetos moderna no JS, vamos entender como ela funcionava antes do ECMA6. A orientação a objetos do JS funciona baseada no conceito de herança de protótipos. Todos objetos do JS herdam de uma classe base, que aqui recebe o nome de protótipo, sendo que a base para todos os objetos é a classe Object. Logo, numa hierarquia de objetos, a classe que é usada como base é chamada de protótipo. Para definir um objeto como protótipo de outro, usamos o comando <u>Object.setPrototypeOf(x,y)</u> sendo x o objeto filho e y o pai.</p>
 
-    <p>Para saber qual é o protótipo (classe mãe/ classe base) de um objeto, <u>pelo console do navegador</u>, podemos usar o comando <em>nomeObjeto.__proto__</em>.</p>
     <pre><code>
     let user = {
     perfil: 'estudante'
-    };
+    }
 
     let estudante1 = {
     nome: 'juliana'
-    };
+    }
 
-    Object.setPrototypeOf(estudante, user);
+    Object.setPrototypeOf(estudante1, user)
+    </code></pre>
+
+    <p>Para saber qual é o protótipo (classe mãe/ classe base) de um objeto, <u>pelo console do navegador</u>, podemos usar o comando <em>nomeObjeto.__proto__</em>.</p>
+    <pre><code>
     estudante1.__proto__; // SAÍDA {perfil: 'estudante'}
     </code></pre>
+
+    <p><strong>__proto__ está em processo de descontinuação.</strong></p>
+
+    <h2>Função Construtora com New</h2>
+    <pre><code>
+    //ESTRUTURA DE UMA FUNÇÃO CONSTRUTORA
+    function User (nome, email){
+        this.nome = nome;
+        this.email = email;
+
+        this.exibirInfos = function(){
+            return `${this.nome}, ${this.email}`;
+        }
+    }
+
+    //USO
+    const novoUser = new User("Luciano","luciano@gmail.com");
+    console.log(novoUser.exibirInfos());
+    </code></pre>
+
+    <h1>Orientação a objetos 'moderna'</h1>
+    <h2>Classe com construtor</h2>
+    <pre><code>
+    class User{
+        //CONSTRUTOR
+        constructor (nome, email, nascimento, role, ativo = true){
+            this.nome = nome;
+            this.email = email;
+            this.nascimento = nascimento;
+            this.role = role || "estudante";
+            this.ativo = ativo;
+        };
+
+        //DEMAIS MÉTODOS
+        exibirInfos(){
+            return `${this.nome}, ${this.email}`;
+        };
+    }
+    </code></pre>
+
+    <h2>Instanciação e uso de classe</h2>
+    <pre><code>
+    const novoUser = new User("Luciano","luciano@gmail.com","1997-19-03");
+    console.log(novoUser);
+    console.log(novoUser.exibirInfos());
+    </code></pre>
+
+    <h2>Verificar protótipos de classes</h2>
+    <p>Para verificar se uma classe é protótipo de outra / é base para outra, podemos usar o comando:</p>
+    <pre><code>
+    console.log(User.prototype.isPrototypeOf(novoUser));
+    </code></pre>
+
+    <h2>Herança entre classes</h2>
+    <p>Para fazer com que uma classe filha herde de uma classe base (entre arquivos diferentes), é preciso:</p>
+    <ul><li>Tornar a classe base exportável;</li></ul>
+
+    <pre><code>
+    <strong>export default</strong> class User{
+    //CONSTRUTOR
+    constructor (nome, ema....
+    </code></pre>
+
+    <ul><li>Importa a classe base e fazer com que a classe filha a extenda</li></ul>
+    <pre><code>
+    import User from "./User.js";
+
+    class Admin <strong>extends</strong> User{
+        constructor(nome, email, nascimento, role = "admin", ativo = true){
+            //CONSTRUTOR DA CLASSE FILHA É O MESMO DA CLASSE BASE
+            //PARA OS PARÂMETROS LISTADOS
+            super(nome, email, nascimento, role, ativo);
+        }
+}
+    </code></pre>
+
+    <p>Classes <strong>não</strong> passam pelo processo de <strong>hoisting</strong>, ou seja, não podemos instanciar uma classe se ela já não tiver sido criada num momento anterior.</p>
     
+    <h2>Encapsulamento</h2>
+    <h3>Com propriedades privadas (Node a partir da versão 12)</h3>
+    <p>Propriedades privadas (visíveis somente na classe) são definidas com uso de <strong>#</strong></p>
+    <pre><code>
+        class User{
+        //ATRIBUTOS
+        #nome;
+
+        //CONSTRUTOR
+        constructor (nome, email, nascimento, role, ativo = true){
+            this.#nome = nome;
+        .
+        .
+        .
+        .
+        //DEMAIS MÉTODOS
+        exibirInfos(){
+            return `${this.#nome}, ${this.email}`;
+        };
+    }
+    </code></pre>
+
+    <p>Ao fazer o uso de propriedades privadas, ficar atento ao fato de que, por exemplo,se existe na classe uma propriedade #nome, ao tentar manipular no código a propriedade nome, o que acontece é a criação de uma nova propriedade nome para o objeto em questão, ou seja, duas propriedades diferentes, não intencionalmente.</p>
+
 </body>
 </html>
