@@ -106,28 +106,170 @@
     <p>Classes <strong>não</strong> passam pelo processo de <strong>hoisting</strong>, ou seja, não podemos instanciar uma classe se ela já não tiver sido criada num momento anterior.</p>
     
     <h2>Encapsulamento</h2>
-    <h3>Com propriedades privadas (Node a partir da versão 12)</h3>
+    <h3>Propriedades privadas (Node a partir da versão 12)</h3>
     <p>Propriedades privadas (visíveis somente na classe) são definidas com uso de <strong>#</strong></p>
     <pre><code>
         class User{
         //ATRIBUTOS
         #nome;
+        #email;
 
         //CONSTRUTOR
         constructor (nome, email, nascimento, role, ativo = true){
             this.#nome = nome;
+            this.#email = email;
         .
         .
         .
         .
         //DEMAIS MÉTODOS
         exibirInfos(){
-            return `${this.#nome}, ${this.email}`;
+            return `${this.#nome}, ${this.#email}`;
         };
     }
     </code></pre>
 
     <p>Ao fazer o uso de propriedades privadas, ficar atento ao fato de que, por exemplo,se existe na classe uma propriedade #nome, ao tentar manipular no código a propriedade nome, o que acontece é a criação de uma nova propriedade nome para o objeto em questão, ou seja, duas propriedades diferentes, não intencionalmente.</p>
+
+    <h3>Métodos privados</h3>
+    <p>A mesma lógica se aplica a <u>métodos privados</u>, com o uso de #.</p>
+    <pre><code>
+    class User{
+        //ATRIBUTOS
+        #nome;
+        #email;
+        #nascimento;
+        #role;
+        #ativo;
+
+        //CONSTRUTOR
+        constructor (nome, email, nascimento, role, ativo = true){
+            this.#nome = nome;
+            this.#email = email;
+            this.#nascimento = nascimento;
+            this.#role = role || "estudante";
+            this.#ativo = ativo;
+        };
+
+        //MÉTODO PRIVADO
+        #montaUsuario(){
+            return {
+                nome:this.#nome,
+                email: this.#email,
+                nascimento: this.#nascimento,
+                role: this.#role,
+                ativo: this.#ativo
+            };
+        }
+
+        //DEMAIS MÉTODOS
+        exibirInfos(){
+            //USO DE MÉTODO PRIVADO PARA OBTER AS INFORMAÇÕES
+            const objUser = this.#montaUsuario();
+            return `${objUser.nome}, ${objUser.email}\n`;
+        };
+    }
+    </code></pre>
+
+    <h3>Métodos acessores - Get</h3>
+    <p>São uma boa prática para orientação a objetos. São os métodos criados para dar acesso de consulta a propriedades privadas</p>
+
+    <p>Estrutura</p>
+    <pre><code>
+        //MÉTODOS GET
+        get nome(){
+            return this.#nome;
+        }
+
+        get email(){
+            return this.#email;
+        }
+    </code></pre>
+    
+    <p>Uso</p>
+    <pre><code>
+    console.log(novoUser.nome);
+    console.log(novoUser.email);
+    </code></pre>
+
+    <p>No seu uso, parece que um atributo está sendo usado, dado a falta dos '()', mas na verdade a implementação é feita dessa forma para que o usuário da classe não tenha conhecimento da lógica interna da classe que está usando, ou seja, sem diferenciação para o uso entre um atributo público ou um método acessor.</p>
+
+    <h3>Métodos modificadores - Set</h3>
+    <p>Da mesma forma que os acessores, porém, para modificar campos.</p>
+
+    <p>Estrutura</p>
+    <pre><code>
+    //MÉTODOS SET
+    set nome(novoNome){
+        this.#nome = novoNome;
+    }
+
+    set email(novoEmail){
+        this.#email = novoEmail;
+    }
+    </code></pre>
+
+    <p>Uso</p>
+    <pre><code>
+    novoUser.nome = "Luciano Rodrigues Batista";
+    </code></pre>
+
+    <p>Ao definir, para uma classe, os métodos acessores e modificadores, sempre que um acesso ou modificação é feito nos atributos, estes métodos são sempre utilizados.</p>
+
+    <p><strong>Para saber:</strong> uma convenção da comunidade, que foi usada por muito tempo, mas agora está caindo em desuso, é que, para indicar que um atributo ou método é privado, coloca-se _ antes do nome. Isso não gera nenhuma mudança sintática, é somente um acordo.</p>
+
+
+    <h2>Polimorfismo</h2>
+    <p>Método de mesmo nome nas classes mãe e filha, porém com comportamentos diferentes. A classe filha sobrescreve o método da classe base.</p>
+    <p>Classe mãe</p>
+    <pre><code>
+    class User{
+    .
+    .
+    .
+    exibirInfos(){
+        //USO DE MÉTODO PRIVADO PARA OBTER AS INFORMAÇÕES
+        return `${this.#nome}, ${this.#email}\n`;
+    };
+    </code></pre>
+
+    <p>Classe filha</p>
+    <pre><code>
+    import User from "./User.js";
+
+    class Admin extends User{
+    .
+    .
+    .
+    exibirInfos(){
+        const infosOriginais = super.exibirInfos();
+        return `${infosOriginais} - Usuário admin`;
+    }
+    </code></pre>
+
+    <p>É comum em algumas linguagens, como o Java, que possamos, na mesma classe, usar métodos de mesmo nome com assinaturas diferentes. A assinatura de um método é o conjunto de seu nome, quantidade e tipo dos parâmetros, e tipo do retorno. Com essa assinatura diferente, podemos utilizar o mesmo nome de função (para linguagens que dão suporte a essa função.). No JS, isso não é possível, a não ser no caso de métodos estáticos.</p>
+
+    <h2>Métodos estáticos</h2>
+    <p>Também chamados de métodos de classe, são usados em situações nas quais não seja necessário depender da instância de um objeto da classe, sendo utilizados diretamente pela classe.</p>
+
+    <p>Estrutura</p>
+    <pre><code>
+        static exibirInfos(nome, email){
+            return `${nome} , ${email}\n`;
+        }
+    </code></pre>
+
+    <p>Uso</p>
+    <pre><code>
+    console.log(User.exibirInfos("Gustavo","gustavo@gmail.com"));
+    </code></pre>
+
+
+
+
+
+
+
 
 </body>
 </html>

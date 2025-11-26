@@ -15,10 +15,31 @@ export default class User{
         this.#ativo = ativo;
     };
 
+    //MÉTODOS GET
+    get nome(){
+        return this.#nome;
+    }
+
+    get email(){
+        return this.#email;
+    }
+
+    //MÉTODOS SET
+    set nome(novoNome){
+        this.#nome = novoNome;
+    }
+
+    set email(novoEmail){
+        this.#email = novoEmail;
+    }
+
     //DEMAIS MÉTODOS
     exibirInfos(){
+        //USO DE MÉTODO PRIVADO PARA OBTER AS INFORMAÇÕES
         return `${this.#nome}, ${this.#email}\n`;
     };
-}
 
-const novoUser = new User("Luciano","luciano@gmail.com","1997-19-03");
+    static exibirInfos(nome, email){
+        return `${nome} , ${email}\n`;
+    }
+}
