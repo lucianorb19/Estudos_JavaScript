@@ -9,7 +9,7 @@ salvarTarefaButton.addEventListener("click", (evento)=>{
         return;
     }
 
-    //console.log(tarefaInput.value);
+    //console.log(tarefaInput.value); MUDEI AQUI AGORA 
     const tarefaDaLista = document.createElement("li");
 
     const containerTarefa = document.createElement("div");
@@ -20,6 +20,7 @@ salvarTarefaButton.addEventListener("click", (evento)=>{
     const nomeTarefa = document.createElement("p");
     nomeTarefa.innerText = tarefaInput.value;
 
+    //MUDEI AQUI AGORA 
     containerTarefa.appendChild(checkbox);
     containerTarefa.appendChild(nomeTarefa);
     tarefaDaLista.appendChild(containerTarefa);
